@@ -2,55 +2,45 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contato - Melinda & Julius</title>
+  <title>Melinda & Julius - Contato</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- GTM -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-PMT8HCLV');</script>
+  <script src="sheets.js" defer></script>
 </head>
 <body>
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMT8HCLV"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <div id="menu"></div>
+  <header class="site-header">
+    <h1>Melinda & Julius</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="cardapio.html">Cardápio</a>
+    <a href="emporio.html">Empório</a>
+    <a href="contato.html" class="active">Contato</a>
+  </nav>
 
   <main class="container">
-    <h1 data-content="contato_titulo">Carregando...</h1>
+    <h2 data-content="titulo_contato">Carregando...</h2>
+    <p data-content="texto_contato">Carregando...</p>
 
-    <section class="contato-info">
-      <p><strong>Endereço:</strong> <span data-content="contato_endereco">Carregando...</span></p>
-      <p><strong>Email:</strong> <span data-content="contato_email">Carregando...</span></p>
-      <p><strong>Telefone:</strong> <span data-content="contato_telefone">Carregando...</span></p>
-      <p><strong>Horário de Atendimento:</strong> <span data-content="contato_horario">Carregando...</span></p>
-    </section>
+    <form class="contato-form" action="https://formspree.io/f/xblkndze" method="POST">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" required>
 
-    <section class="contato-form">
-      <h2>Envie sua mensagem</h2>
-      <form action="https://formspree.io/f/xblkndze" method="POST">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="_replyto" required>
+      <label for="mensagem">Mensagem</label>
+      <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
 
-        <label for="mensagem">Mensagem:</label>
-        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
-
-        <button type="submit">Enviar</button>
-      </form>
-    </section>
+      <button type="submit">Enviar</button>
+    </form>
   </main>
 
   <footer>
-    <p>&copy; 2024 Melinda & Julius - Todos os direitos reservados.</p>
+    &copy; 2025 Melinda & Julius
   </footer>
 
-  <script src="menu.js"></script>
-  <script src="sheets.js"></script>
 </body>
 </html>
