@@ -3,32 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Melinda & Julius | Início</title>
+  <title>Melinda & Julius | Sobre</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <h1>Melinda & Julius</h1>
-    <p>Empório & Restaurante de Produtos Naturais</p>
   </header>
 
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="sobre.html" class="active">Sobre</a>
-    <a href="emporio.html">Empório</a>
-    <a href="cardapio.html">Cardápio</a>
-    <a href="contato.html">Contato</a>
-  </nav>
+  <div id="menu-placeholder"></div>
 
   <section>
-    <h2>Bem-vindo!</h2>
-    <p>Alimentação saudável, saborosa e consciente. 🌱</p>
+    <h2>Sobre Nós</h2>
+    <p>Somos um empório e restaurante focado em produtos naturais, veganos, vegetarianos e sem glúten. 🌱</p>
+    <p>Nosso objetivo é oferecer alimentos saudáveis com sabor e qualidade para todos.</p>
   </section>
 
   <footer>
     <p>© 2025 Melinda & Julius</p>
   </footer>
+
+  <script>
+    fetch('menu.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('menu-placeholder').innerHTML = data;
+        const links = document.querySelectorAll('#menu-placeholder a');
+        links.forEach(link => {
+          if (link.getAttribute('href') === location.pathname.split("/").pop()) {
+            link.classList.add('active');
+          }
+        });
+      });
+  </script>
 </body>
 </html>
-
-
