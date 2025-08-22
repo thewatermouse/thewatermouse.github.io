@@ -1,60 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Melinda & Julius | Contato</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>Melinda & Julius</h1>
-  </header>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melinda & Julius | Contato</title>
+<link rel="stylesheet" href="style.css">
 
-  <!-- Menu externo -->
-  <div id="menu-placeholder"></div>
-
-  <section>
-    <h2>Contato</h2>
-    <p>Envie sua mensagem para nós:</p>
-
-    <form action="https://formspree.io/f/xblkndze" method="POST">
-      <label for="nome">Nome:</label><br>
-      <input type="text" id="nome" name="nome" required><br><br>
-
-      <label for="email">E-mail:</label><br>
-      <input type="email" id="email" name="_replyto" required><br><br>
-
-      <label for="mensagem">Mensagem:</label><br>
-      <textarea id="mensagem" name="mensagem" rows="5" required></textarea><br><br>
-
-      <button type="submit">Enviar</button>
-    </form>
-
-    <p>📍 Endereço: [sua cidade/endereço]</p>
-    <p>📱 WhatsApp: <a href="https://wa.me/55SEUNUMERO" target="_blank">(11) 99999-9999</a></p>
-    <p>📸 Instagram: <a href="https://instagram.com/melindaejulius" target="_blank">@melindaejulius</a></p>
-  </section>
-
-  <footer>
-    <p>© 2025 Melinda & Julius</p>
-  </footer>
-
-  <!-- Script para carregar menu externo + destacar página atual -->
-  <script>
-    fetch('menu.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('menu-placeholder').innerHTML = data;
-
-        // Destacar link ativo automaticamente
-        const links = document.querySelectorAll('#menu-placeholder a');
-        links.forEach(link => {
-          if (link.getAttribute('href') === location.pathname.split("/").pop()) {
-            link.classList.add('active');
-          }
-        });
-      });
-  </script>
-</body>
-</html>
+<script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'
