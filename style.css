@@ -1,37 +1,91 @@
-/* Container geral */
+/* ============================= */
+/* FONTES */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+
+/* ============================= */
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lora', serif;
+  color: #333;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+/* ============================= */
+/* MENU */
+nav {
+  background-color: #A3C293; /* verde suave */
+  padding: 15px 0;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+nav a {
+  color: #4B3B2A; /* marrom escuro */
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+nav a:hover {
+  color: #F28C28; /* laranja de destaque */
+}
+
+nav a.active {
+  color: #F28C28;
+  text-decoration: underline;
+}
+
+/* ============================= */
+/* CONTAINER GERAL */
 main.container {
   max-width: 1200px;
-  margin: auto;
+  margin: 100px auto 50px auto; /* margin-top para o menu fixo */
   padding: 20px;
   text-align: center;
 }
 
-/* Header centralizado */
-header {
-  text-align: center;
-  padding: 50px 20px;
-}
-
-/* Seções centrais */
-section {
-  text-align: center;
+/* ============================= */
+/* HEADERS E SEÇÕES */
+header, section {
   margin-bottom: 40px;
 }
 
-/* Contato form centralizado */
-.contato-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 400px;
-  margin: auto;
+h1, h2, h3 {
+  color: #4B3B2A;
 }
 
-/* Empório */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+/* ============================= */
+/* EMPÓRIO */
 .grid-produtos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  gap: 25px;
   justify-items: center;
   padding: 20px;
 }
@@ -39,13 +93,110 @@ section {
 .produto {
   border: 1px solid #ddd;
   padding: 15px;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
+  background-color: #fafafa;
   width: 100%;
   max-width: 250px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.produto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .produto img {
   max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.produto h3 {
+  margin-bottom: 5px;
+}
+
+.produto .preco {
+  color: #F28C28;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.produto small {
+  color: #777;
+}
+
+/* ============================= */
+/* FORMULÁRIO CONTATO */
+.contato-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 450px;
+  margin: auto;
+  text-align: left;
+}
+
+.contato-form label {
+  font-weight: 600;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.contato-form input,
+.contato-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
   border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Lora', serif;
+}
+
+.contato-form button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  background-color: #A3C293;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contato-form button:hover {
+  background-color: #88a17b;
+}
+
+/* ============================= */
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #f2f2f2;
+  color: #555;
+  margin-top: 50px;
+  font-size: 0.9rem;
+}
+
+/* ============================= */
+/* RESPONSIVO */
+@media screen and (max-width: 768px) {
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .grid-produtos {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
 }
