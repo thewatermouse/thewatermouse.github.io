@@ -1,127 +1,92 @@
-const sheetId = "15nxHrFuoDs5yw9wQK43kh3BhCCsg0cPUtfk6pesCRJc";
-const apiKey = "AIzaSyDVWzA6oj1l32GubPuxPjQF3z3aw";
-const urlBase = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/`;
+// ID da sua planilha
+const SHEET_ID = "15nxHrFuoDs5yw9wQK43kh3BhCCsg0cPUtfk6pesCRJc";
 
-async function carregarConteudo() {
+// Mapeamento de abas por página
+const SHEET_TABS = {
+  "index.html": "Home",
+  "cardapio.html": "Emporio",
+  "emporio.html": "Emporio",
+  "contato.html": "Contato",
+  "sobre.html": "Sobre"
+};
+
+// Função para pegar nome do arquivo atual
+function getCurrentPage() {
+  const path = window.location.pathname;
+  return path.substring(path.lastIndexOf("/") + 1) || "index.html";
+}
+
+// Função para buscar dados de uma aba do Google Sheets
+async function fetchSheetData(sheetName) {
+  const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${sheetName}`;
+  const response = await fetch(url);
+  const text = await response.text();
+
+  // Remove o prefixo/sufixo que o Google coloca
+  const json = JSON.parse(text.substring(47).slice(0, -2));
+  return json.table.rows.map(row => row.c.map(cell => (cell ? cell.v : "")));
+}
+
+// Função para carregar textos comuns (campo/valor)
+async function loadTexts(sheetName) {
   try {
-    // 🔹 Abas que seguem o padrão "campo/valor"
-    const abasFixas = ["Home", "Sobre", "Contato", "Emporio"];
-    for (let aba of abasFixas) {
-      await carregarPagina(aba);
-    }
-
-    // 🔹 Cardápio (dinâmico por categorias)
-    await carregarCardapio();
-
-  } catch (e) {
-    console.error("Erro geral:", e);
-  }
-}
-
-async function carregarPagina(aba) {
-  const url = `${urlBase}${aba}?key=${apiKey}`;
-  const resp = await fetch(url);
-  const data = await resp.json();
-
-  if (!data.values) return;
-
-  // Se for Empório, usa lógica especial
-  if (aba === "Emporio") {
-    preencherEmporio(data.values);
-    return;
-  }
-
-  // Caso contrário, usa campo/valor
-  data.values.slice(1).forEach(([campo, valor]) => {
-    const el = document.querySelector(`[data-content="${campo.toLowerCase()}_${aba.toLowerCase()}"]`);
-    if (el) {
-      el.innerText = valor;
-    }
-  });
-}
-
-async function carregarCardapio() {
-  const url = `${urlBase}Cardapio?key=${apiKey}`;
-  const resp = await fetch(url);
-  const data = await resp.json();
-
-  if (!data.values) return;
-
-  const cabecalhos = data.values[0];
-  const linhas = data.values.slice(1);
-
-  // Estrutura: { Categoria: [ {nome, descricao, preco}, ... ] }
-  const categorias = {};
-
-  linhas.forEach(linha => {
-    const item = {};
-    cabecalhos.forEach((col, i) => {
-      item[col] = linha[i] || "";
+    const data = await fetchSheetData(sheetName);
+    data.forEach(row => {
+      const [campo, valor] = row;
+      const el = document.getElementById(campo);
+      if (el) el.innerHTML = valor;
     });
+  } catch (err) {
+    console.error("Erro ao carregar textos:", err);
+  }
+}
 
-    if (!categorias[item.Categoria]) {
-      categorias[item.Categoria] = [];
-    }
-    categorias[item.Categoria].push(item);
-  });
+// Função para carregar produtos do Empório/Cardápio
+async function loadProducts(sheetName) {
+  try {
+    const data = await fetchSheetData(sheetName);
+    const container = document.getElementById("products-container");
+    if (!container) return;
 
-  const container = document.querySelector("main.container");
-  container.innerHTML = ""; // limpa antes
+    let html = "";
+    let currentCategory = "";
 
-  Object.entries(categorias).forEach(([categoria, itens]) => {
-    const section = document.createElement("section");
-    section.classList.add("categoria");
+    data.forEach(row => {
+      const [categoria, nome, imagem, preco, descricao] = row;
 
-    const titulo = document.createElement("h2");
-    titulo.innerText = categoria;
-    section.appendChild(titulo);
+      if (categoria && categoria !== currentCategory) {
+        if (currentCategory !== "") html += "</div>";
+        currentCategory = categoria;
+        html += `<h2 class="category-title">${categoria}</h2><div class="category">`;
+      }
 
-    const grid = document.createElement("div");
-    grid.classList.add("grid-produtos");
-
-    itens.forEach(item => {
-      const card = document.createElement("div");
-      card.classList.add("produto");
-
-      card.innerHTML = `
-        <h3>${item.Nome}</h3>
-        <p class="descricao">${item.Descricao.replace(/\\n/g, "<br>")}</p>
-        <p class="preco">${item.Preco}</p>
+      html += `
+        <div class="product-card">
+          <img src="${imagem}" alt="${nome}">
+          <h3>${nome}</h3>
+          <p class="price">R$ ${preco}</p>
+          <p class="description">${descricao}</p>
+        </div>
       `;
-
-      grid.appendChild(card);
     });
 
-    section.appendChild(grid);
-    container.appendChild(section);
-  });
+    if (currentCategory !== "") html += "</div>";
+    container.innerHTML = html;
+  } catch (err) {
+    console.error("Erro ao carregar produtos:", err);
+  }
 }
 
-function preencherEmporio(valores) {
-  const cabecalhos = valores[0];
-  const linhas = valores.slice(1);
-  const container = document.getElementById("emporio");
-  if (!container) return;
+// Inicialização
+document.addEventListener("DOMContentLoaded", async () => {
+  const page = getCurrentPage();
+  const sheetName = SHEET_TABS[page];
 
-  container.innerHTML = "";
+  if (!sheetName) return;
 
-  linhas.forEach(linha => {
-    const item = {};
-    cabecalhos.forEach((col, i) => {
-      item[col] = linha[i] || "";
-    });
-
-    const card = document.createElement("div");
-    card.classList.add("produto");
-
-    card.innerHTML = `
-      <h3>${item.Nome}</h3>
-      <p class="descricao">${item.Descricao.replace(/\\n/g, "<br>")}</p>
-      <p class="preco">${item.Preco}</p>
-    `;
-
-    container.appendChild(card);
-  });
-}
-
-carregarConteudo();
+  if (sheetName === "Emporio") {
+    await loadProducts(sheetName);
+  } else {
+    await loadTexts(sheetName);
+  }
+});
