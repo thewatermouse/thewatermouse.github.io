@@ -5,46 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Melinda & Julius | Início</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PMT8HCLV');</script>
-<!-- End Google Tag Manager -->
-  
 </head>
 <body>
-
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMT8HCLV"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  
   <header>
     <h1>Melinda & Julius</h1>
     <p>Empório & Restaurante de Produtos Naturais</p>
   </header>
 
-  <nav>
-    <a href="index.html" class="active">Início</a>
-    <a href="sobre.html">Sobre</a>
-    <a href="emporio.html">Empório</a>
-    <a href="cardapio.html">Cardápio</a>
-    <a href="contato.html">Contato</a>
-  </nav>
+  <!-- Menu externo -->
+  <div id="menu-placeholder"></div>
 
   <section>
     <h2>Bem-vindo!</h2>
     <p>Alimentação saudável, saborosa e consciente. 🌱</p>
   </section>
 
+  <section>
+    <h2>Instagram</h2>
+    <p>Veja nossas últimas fotos:</p>
+
+    <!-- Widget do Instagram -->
+    <iframe src="https://lightwidget.com/widgets/SEU_WIDGET_ID.html" 
+            scrolling="no" allowtransparency="true" class="lightwidget-widget" 
+            style="width:100%;border:0;overflow:hidden;"></iframe>
+  </section>
+
   <footer>
     <p>© 2025 Melinda & Julius</p>
   </footer>
+
+  <!-- Script para carregar menu externo + destacar página atual -->
+  <script>
+    fetch('menu.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('menu-placeholder').innerHTML = data;
+
+        // Destacar link ativo automaticamente
+        const links = document.querySelectorAll('#menu-placeholder a');
+        links.forEach(link => {
+          if (link.getAttribute('href') === location.pathname.split("/").pop() || 
+              (link.getAttribute('href') === "index.html" && location.pathname.split("/").pop() === "")) {
+            link.classList.add('active');
+          }
+        });
+      });
+  </script>
 </body>
 </html>
-
-
-
