@@ -13,19 +13,16 @@ header {
   padding: 2rem 1rem;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2rem;
-}
+header h1 { margin: 0; font-size: 2rem; }
 
+/* Menu sticky */
 nav {
   background: #e6f0e6;
   padding: 0.8rem;
   text-align: center;
-
-  position: sticky;  /* faz o menu "grudar" */
-  top: 0;            /* cola no topo da página */
-  z-index: 1000;     /* fica acima do conteúdo */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 nav a {
@@ -37,20 +34,16 @@ nav a {
   padding: 0.5rem;
 }
 
-nav a:hover {
-  text-decoration: underline;
+nav a.active {
+  color: white;
+  background: #7aa874;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
 }
 
-section {
-  padding: 2rem 1.5rem;
-  max-width: 900px;
-  margin: auto;
-}
+section { padding: 2rem 1.5rem; max-width: 900px; margin: auto; }
 
-h2 {
-  color: #7aa874;
-  margin-bottom: 1rem;
-}
+h2 { color: #7aa874; margin-bottom: 1rem; }
 
 footer {
   background: #7aa874;
@@ -60,29 +53,5 @@ footer {
   margin-top: 2rem;
 }
 
-.produtos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.produto {
-  flex: 1;
-  min-width: 200px;
-  max-width: 250px;
-  text-align: center;
-  background: white;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.produto img {
-  max-width: 100%;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
-}
-
-
-
+/* Instagram widget */
+.lightwidget-widget { max-width: 900px; margin: auto; display: block; }
