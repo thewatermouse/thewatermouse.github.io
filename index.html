@@ -2,46 +2,37 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Melinda & Julius - Home</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-PMT8HCLV');</script>
+  <script src="sheets.js" defer></script>
 </head>
 <body>
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMT8HCLV"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <div id="menu"></div>
+  <header class="site-header">
+    <h1>Melinda & Julius</h1>
+  </header>
+
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="cardapio.html">Cardápio</a>
+    <a href="emporio.html">Empório</a>
+    <a href="contato.html">Contato</a>
+  </nav>
 
   <main class="container">
-    <header>
-      <h1 data-content="titulo_home">Carregando...</h1>
-      <p data-content="subtitulo_home">Carregando...</p>
-    </header>
+    <h2 data-content="titulo_home">Carregando...</h2>
+    <p data-content="texto_home">Carregando...</p>
 
-    <section>
-      <p data-content="sobre_intro">Carregando...</p>
-    </section>
-
-    <section id="instagram">
-      <h2>Nosso Instagram</h2>
-      <div class="instagram-feed">
-        <blockquote class="instagram-media" 
-          data-instgrm-permalink="https://www.instagram.com/melindaejulius/" 
-          data-instgrm-version="14">
-        </blockquote>
-      </div>
-      <script async src="//www.instagram.com/embed.js"></script>
-    </section>
+    <!-- Instagram Embed -->
+    <div id="instagram-feed">
+      <iframe src="https://www.instagram.com/p/INSIRA_SEU_EMBED/?utm_source=ig_embed" width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+    </div>
   </main>
 
-  <script src="menu.js"></script>
-  <script src="sheets.js"></script>
+  <footer>
+    &copy; 2025 Melinda & Julius
+  </footer>
+
 </body>
 </html>
