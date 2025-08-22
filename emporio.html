@@ -11,19 +11,12 @@
     <h1>Melinda & Julius</h1>
   </header>
 
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="sobre.html">Sobre</a>
-    <a href="cardapio.html">Cardápio</a>
-    <a href="contato.html">Contato</a>
-    <a href="emporio.html" class="active">Empório</a>
-  </nav>
+  <div id="menu-placeholder"></div>
 
   <section>
     <h2>Empório</h2>
     <p>Confira nossas categorias de produtos naturais, veganos e orgânicos:</p>
 
-    <!-- Categoria 1 -->
     <h3>Snacks e Petiscos</h3>
     <div class="produtos">
       <div class="produto">
@@ -36,7 +29,6 @@
       </div>
     </div>
 
-    <!-- Categoria 2 -->
     <h3>Bebidas Naturais</h3>
     <div class="produtos">
       <div class="produto">
@@ -48,23 +40,24 @@
         <p>Kombucha artesanal</p>
       </div>
     </div>
-
-    <!-- Categoria 3 -->
-    <h3>Produtos de Padaria</h3>
-    <div class="produtos">
-      <div class="produto">
-        <img src="imagens/pao1.jpg" alt="Pão 1">
-        <p>Pão integral sem glúten</p>
-      </div>
-      <div class="produto">
-        <img src="imagens/pao2.jpg" alt="Pão 2">
-        <p>Bolo vegano de banana</p>
-      </div>
-    </div>
   </section>
 
   <footer>
     <p>© 2025 Melinda & Julius</p>
   </footer>
+
+  <script>
+    fetch('menu.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('menu-placeholder').innerHTML = data;
+        const links = document.querySelectorAll('#menu-placeholder a');
+        links.forEach(link => {
+          if (link.getAttribute('href') === location.pathname.split("/").pop()) {
+            link.classList.add('active');
+          }
+        });
+      });
+  </script>
 </body>
 </html>
