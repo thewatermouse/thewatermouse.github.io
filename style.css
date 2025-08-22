@@ -60,3 +60,29 @@ footer {
   margin-top: 2rem;
 }
 
+.produtos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.produto {
+  flex: 1;
+  min-width: 200px;
+  max-width: 250px;
+  text-align: center;
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.produto img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+
+
