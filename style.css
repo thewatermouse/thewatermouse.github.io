@@ -1,11 +1,18 @@
-body {
-  font-family: Arial, sans-serif;
+/* --- Reset e básico --- */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background: #f8f9f4;
-  color: #333;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f9f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* --- Header --- */
 header {
   background: #7aa874;
   color: white;
@@ -13,9 +20,12 @@ header {
   padding: 2rem 1rem;
 }
 
-header h1 { margin: 0; font-size: 2rem; }
+header h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
 
-/* Menu sticky */
+/* --- Menu sticky --- */
 nav {
   background: #e6f0e6;
   padding: 0.8rem;
@@ -32,6 +42,13 @@ nav a {
   color: #7aa874;
   display: inline-block;
   padding: 0.5rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+nav a:hover {
+  background: #7aa874;
+  color: white;
+  border-radius: 5px;
 }
 
 nav a.active {
@@ -41,10 +58,19 @@ nav a.active {
   padding: 0.5rem 1rem;
 }
 
-section { padding: 2rem 1.5rem; max-width: 900px; margin: auto; }
+/* --- Seções --- */
+section {
+  padding: 2rem 1.5rem;
+  max-width: 900px;
+  margin: auto;
+}
 
-h2 { color: #7aa874; margin-bottom: 1rem; }
+h2 {
+  color: #7aa874;
+  margin-bottom: 1rem;
+}
 
+/* --- Footer --- */
 footer {
   background: #7aa874;
   color: white;
@@ -53,5 +79,8 @@ footer {
   margin-top: 2rem;
 }
 
-/* Instagram widget */
-.lightwidget-widget { max-width: 900px; margin: auto; display: block; }
+/* --- Instagram widget --- */
+.lightwidget-widget {
+  max-width: 900px;
+  margin: auto;
+  display
