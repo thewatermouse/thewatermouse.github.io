@@ -2,45 +2,29 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Melinda & Julius - Cardápio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio - Melinda & Julius</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="sheets.js" defer></script>
 </head>
 <body>
-
-  <header class="site-header">
-    <h1>Melinda & Julius</h1>
+  <header>
+    <h1 class="logo">Melinda & Julius</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="cardapio.html">Cardápio</a></li>
+        <li><a href="emporio.html">Empório</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="sobre.html">Sobre</a>
-    <a href="cardapio.html" class="active">Cardápio</a>
-    <a href="emporio.html">Empório</a>
-    <a href="contato.html">Contato</a>
-  </nav>
-
-  <main class="container">
-    <!-- Categorias dinâmicas -->
-    <section class="categoria">
-      <h2>Saladas</h2>
-      <div class="grid-produtos" id="saladas"></div>
-    </section>
-
-    <section class="categoria">
-      <h2>Bebidas</h2>
-      <div class="grid-produtos" id="bebidas"></div>
-    </section>
-
-    <section class="categoria">
-      <h2>Sopas</h2>
-      <div class="grid-produtos" id="sopas"></div>
-    </section>
+  <main>
+    <h2>Nosso Cardápio</h2>
+    <div id="menu"></div>
+    <script src="script.js"></script>
   </main>
-
-  <footer>
-    &copy; 2025 Melinda & Julius
-  </footer>
-
 </body>
 </html>
