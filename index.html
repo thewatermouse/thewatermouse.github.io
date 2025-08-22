@@ -16,49 +16,51 @@
   </script>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXX"
             height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
 
   <header>
-    <h1>Melinda & Julius</h1>
-    <p>Empório & Restaurante de Produtos Naturais</p>
+    <h1 data-content="hero_title">Título padrão</h1>
+    <p data-content="hero_subtitle">Subtítulo padrão</p>
   </header>
 
-  <!-- Menu externo -->
   <div id="menu-placeholder"></div>
 
   <section>
-    <h2>Bem-vindo!</h2>
-    <p>Alimentação saudável, saborosa e consciente. 🌱</p>
+    <p data-content="sobre_intro">Texto introdutório padrão</p>
   </section>
 
-  <section>
-    <h2>Instagram</h2>
-    <p>Veja nossas últimas fotos:</p>
-    <iframe src="https://lightwidget.com/widgets/SEU_WIDGET_ID.html" 
-            scrolling="no" allowtransparency="true" class="lightwidget-widget" 
-            style="width:100%;border:0;overflow:hidden;"></iframe>
-  </section>
-
-  <footer>
-    <p>© 2025 Melinda & Julius</p>
-  </footer>
+  <!-- Instagram feed, footer, etc. -->
 
   <script>
+    // Carrega menu e ativa link
     fetch('menu.html')
-      .then(res => res.text())
-      .then(data => {
+      .then(r => r.text()).then(data => {
         document.getElementById('menu-placeholder').innerHTML = data;
         document.querySelectorAll('#menu-placeholder a').forEach(link => {
-          if(link.getAttribute('href') === location.pathname.split("/").pop() || 
-             (link.getAttribute('href') === "index.html" && location.pathname.split("/").pop() === "")) {
+          if (link.getAttribute('href') === location.pathname.split("/").pop() || 
+              (location.pathname.split("/").pop() === "" && link.getAttribute('href') === "index.html"))
             link.classList.add('active');
-          }
         });
       });
+
+    // Carrega textos da aba "Home"
+    function carregarTextos(aba) {
+      const url = `https://docs.google.com/spreadsheets/d/15nxHrFuoDs5yw9wQK43kh3BhCCsg0cPUtfk6pesCRJc/gviz/tq?tqx=out:csv&sheet=${aba}`;
+      fetch(url)
+        .then(r => r.text())
+        .then(csv => {
+          csv.split('\n').slice(1).forEach(row => {
+            const [id, ...rest] = row.split(',');
+            const texto = rest.join(',');
+            const el = document.querySelector(`[data-content="${id}"]`);
+            if (el) el.textContent = texto;
+          });
+        });
+    }
+    carregarTextos("Home");
   </script>
 </body>
 </html>
