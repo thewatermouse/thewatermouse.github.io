@@ -1,45 +1,30 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+/* Container geral */
+main.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
 }
 
-nav {
-  background: #2d572c;
-  padding: 10px;
-  position: sticky;
-  top: 0;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-nav li {
-  margin-right: 15px;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-}
-
-nav a.active {
-  font-weight: bold;
-  border-bottom: 2px solid yellow;
-}
-
+/* Header centralizado */
 header {
   text-align: center;
-  padding: 50px;
+  padding: 50px 20px;
 }
 
-.instagram-feed {
-  margin: 20px;
+/* Seções centrais */
+section {
   text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Contato form centralizado */
+.contato-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  margin: auto;
 }
 
 /* Empório */
@@ -47,6 +32,7 @@ header {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
+  justify-items: center;
   padding: 20px;
 }
 
@@ -55,49 +41,11 @@ header {
   padding: 15px;
   border-radius: 8px;
   text-align: center;
+  width: 100%;
+  max-width: 250px;
 }
 
 .produto img {
   max-width: 100%;
   border-radius: 8px;
-}
-
-.preco {
-  font-weight: bold;
-  color: #2d572c;
-}
-
-/* Contato */
-.contato-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 400px;
-  margin: auto;
-}
-
-.contato-form label {
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-.contato-form input, 
-.contato-form textarea {
-  padding: 8px;
-  margin-top: 5px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-.contato-form button {
-  background: #2d572c;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.contato-form button:hover {
-  background: #244421;
 }
