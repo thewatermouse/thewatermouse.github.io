@@ -1,63 +1,66 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Melinda & Julius | Empório</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melinda & Julius | Empório</title>
+<link rel="stylesheet" href="style.css">
+
+<script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXX');
+</script>
 </head>
 <body>
-  <header>
-    <h1>Melinda & Julius</h1>
-  </header>
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXX"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
 
-  <div id="menu-placeholder"></div>
+<header>
+  <h1>Melinda & Julius</h1>
+</header>
 
-  <section>
-    <h2>Empório</h2>
-    <p>Confira nossas categorias de produtos naturais, veganos e orgânicos:</p>
+<div id="menu-placeholder"></div>
 
-    <h3>Snacks e Petiscos</h3>
-    <div class="produtos">
-      <div class="produto">
-        <img src="imagens/snack1.jpg" alt="Snack 1">
-        <p>Mix de castanhas orgânicas</p>
-      </div>
-      <div class="produto">
-        <img src="imagens/snack2.jpg" alt="Snack 2">
-        <p>Chips de batata-doce</p>
-      </div>
-    </div>
+<section>
+  <h2>Empório</h2>
+  <div class="produtos"></div>
+</section>
 
-    <h3>Bebidas Naturais</h3>
-    <div class="produtos">
-      <div class="produto">
-        <img src="imagens/bebida1.jpg" alt="Bebida 1">
-        <p>Suco verde detox</p>
-      </div>
-      <div class="produto">
-        <img src="imagens/bebida2.jpg" alt="Bebida 2">
-        <p>Kombucha artesanal</p>
-      </div>
-    </div>
-  </section>
+<footer>
+  <p>© 2025 Melinda & Julius</p>
+</footer>
 
-  <footer>
-    <p>© 2025 Melinda & Julius</p>
-  </footer>
-
-  <script>
-    fetch('menu.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('menu-placeholder').innerHTML = data;
-        const links = document.querySelectorAll('#menu-placeholder a');
-        links.forEach(link => {
-          if (link.getAttribute('href') === location.pathname.split("/").pop()) {
-            link.classList.add('active');
-          }
-        });
+<script>
+  fetch('menu.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('menu-placeholder').innerHTML = data;
+      document.querySelectorAll('#menu-placeholder a').forEach(link => {
+        if(link.getAttribute('href') === location.pathname.split("/").pop()) {
+          link.classList.add('active');
+        }
       });
-  </script>
+    });
+
+  // --- Google Sheets para produtos ---
+  fetch('https://docs.google.com/spreadsheets/d/15nxHrFuoDs5yw9wQK43kh3BhCCsg0cPUtfk6pesCRJc/pub?output=csv')
+    .then(res => res.text())
+    .then(data => {
+      const linhas = data.split('\n').slice(1);
+      const container = document.querySelector('.produtos');
+      linhas.forEach(linha => {
+        const [categoria, nome, descricao, imagem] = linha.split(',');
+        const div = document.createElement('div');
+        div.className = 'produto';
+        div.innerHTML = `<img src="imagens/${imagem}" alt="${nome}"><p>${nome}</p><p>${descricao}</p>`;
+        container.appendChild(div);
+      });
+    });
+</script>
 </body>
 </html>
