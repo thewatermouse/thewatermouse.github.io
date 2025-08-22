@@ -6,7 +6,7 @@
   <title>Melinda & Julius - Empório</title>
   <link rel="stylesheet" href="style.css">
 
-  <!-- GTM -->
+  <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -17,6 +17,7 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMT8HCLV"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
+  <!-- Menu -->
   <div id="menu"></div>
 
   <section>
@@ -26,5 +27,43 @@
 
   <script src="menu.js"></script>
   <script src="sheets.js"></script>
+  <script>
+    async function loadEmporio() {
+      const sheetId = "15nxHrFuoDs5yw9wQK43kh3BhCCsg0cPUtfk6pesCRJc";
+      const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=Emporio`;
+      try {
+        const response = await fetch(url);
+        const text = await response.text();
+        const json = JSON.parse(text.substring(47).slice(0, -2));
+        const rows = json.table.rows;
+        const container = document.getElementById("produtos");
+        container.innerHTML = "";
+        rows.forEach(r => {
+          if (r.c[0]) {
+            const categoria = r.c[0]?.v || "";
+            const nome = r.c[1]?.v || "";
+            const imagem = r.c[2]?.v || "";
+            const preco = r.c[3]?.v || "";
+            const descricao = r.c[4]?.v || "";
+
+            const div = document.createElement("div");
+            div.className = "produto";
+            div.innerHTML = `
+              <img src="${imagem}" alt="${nome}">
+              <h3>${nome}</h3>
+              <p class="preco">${preco}</p>
+              <p>${descricao}</p>
+              <small>${categoria}</small>
+            `;
+            container.appendChild(div);
+          }
+        });
+      } catch(err) {
+        console.error("Erro carregando Empório:", err);
+      }
+    }
+    loadSheetData("Emporio"); // mantém compatibilidade com sheets.js
+    loadEmporio(); // grid de produtos
+  </script>
 </body>
 </html>
