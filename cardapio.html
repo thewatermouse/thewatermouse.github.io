@@ -3,43 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Melinda & Julius | Cardápio</title>
+  <title>Melinda & Julius - Cardápio</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- GTM -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PMT8HCLV');</script>
 </head>
 <body>
-  <header>
-    <h1>Melinda & Julius</h1>
-  </header>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMT8HCLV"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <div id="menu-placeholder"></div>
+  <div id="menu"></div>
 
   <section>
-    <h2>Cardápio</h2>
-    <p>Confira nossas opções de pratos veganos, vegetarianos e naturais:</p>
-    <ul>
-      <li>Salada de quinoa com legumes orgânicos</li>
-      <li>Hambúrguer vegano artesanal</li>
-      <li>Sopa detox do dia</li>
-      <li>Suco verde detox</li>
-    </ul>
+    <h1 data-content="titulo_cardapio">Cardápio</h1>
+    <p data-content="texto_cardapio">Veja nossas opções de pratos naturais e saudáveis.</p>
   </section>
 
-  <footer>
-    <p>© 2025 Melinda & Julius</p>
-  </footer>
-
-  <script>
-    fetch('menu.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('menu-placeholder').innerHTML = data;
-        const links = document.querySelectorAll('#menu-placeholder a');
-        links.forEach(link => {
-          if (link.getAttribute('href') === location.pathname.split("/").pop()) {
-            link.classList.add('active');
-          }
-        });
-      });
-  </script>
+  <script src="menu.js"></script>
+  <script src="sheets.js"></script>
 </body>
 </html>
