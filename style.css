@@ -18,11 +18,28 @@ body {
 }
 
 /* ============================= */
+/* HEADER DA MARCA */
+.site-header {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.site-header h1 {
+  font-size: 3rem;
+  color: #4B3B2A;
+  font-weight: 700;
+}
+
+/* ============================= */
 /* MENU */
 nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
   background-color: #A3C293; /* verde suave */
   padding: 15px 0;
-  text-align: center;
   position: fixed;
   width: 100%;
   top: 0;
@@ -30,15 +47,15 @@ nav {
 }
 
 nav a {
+  display: inline-block;
   color: #4B3B2A; /* marrom escuro */
   text-decoration: none;
-  margin: 0 15px;
   font-weight: 600;
   font-size: 1.1rem;
 }
 
 nav a:hover {
-  color: #F28C28; /* laranja de destaque */
+  color: #F28C28; /* laranja destaque */
 }
 
 nav a.active {
@@ -50,7 +67,7 @@ nav a.active {
 /* CONTAINER GERAL */
 main.container {
   max-width: 1200px;
-  margin: 100px auto 50px auto; /* margin-top para o menu fixo */
+  margin: 180px auto 50px auto; /* margin-top ajustada para header + menu fixo */
   padding: 20px;
   text-align: center;
 }
@@ -183,13 +200,17 @@ footer {
 /* ============================= */
 /* RESPONSIVO */
 @media screen and (max-width: 768px) {
-  nav a {
-    display: block;
-    margin: 10px 0;
+  nav {
+    flex-direction: column;
+    gap: 15px;
   }
 
   .grid-produtos {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  h1.site-header {
+    font-size: 2.2rem;
   }
 
   h1 {
