@@ -12,14 +12,13 @@
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PMT8HCLV');
+    })(window,document,'script','dataLayer','GTM-XXXX');
   </script>
-  <!-- End Google Tag Manager -->
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMT8HCLV"
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXX"
             height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
 
@@ -48,18 +47,14 @@
     <p>© 2025 Melinda & Julius</p>
   </footer>
 
-  <!-- JS para menu externo e link ativo -->
   <script>
     fetch('menu.html')
-      .then(response => response.text())
+      .then(res => res.text())
       .then(data => {
         document.getElementById('menu-placeholder').innerHTML = data;
-
-        // Destacar link ativo automaticamente
-        const links = document.querySelectorAll('#menu-placeholder a');
-        links.forEach(link => {
-          if (link.getAttribute('href') === location.pathname.split("/").pop() || 
-              (link.getAttribute('href') === "index.html" && location.pathname.split("/").pop() === "")) {
+        document.querySelectorAll('#menu-placeholder a').forEach(link => {
+          if(link.getAttribute('href') === location.pathname.split("/").pop() || 
+             (link.getAttribute('href') === "index.html" && location.pathname.split("/").pop() === "")) {
             link.classList.add('active');
           }
         });
