@@ -3,64 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Melinda & Julius | Início</title>
+  <title>Melinda & Julius - Home</title>
   <link rel="stylesheet" href="style.css">
 
   <!-- Google Tag Manager -->
-  <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-XXXX');
-  </script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PMT8HCLV');</script>
+  <!-- End Google Tag Manager -->
 </head>
 <body>
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXX"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMT8HCLV"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div id="menu"></div>
 
   <header>
-    <h1 data-content="hero_title">Título padrão</h1>
-    <p data-content="hero_subtitle">Subtítulo padrão</p>
+    <h1 data-content="titulo_home">Bem-vindo ao Melinda & Julius</h1>
+    <p data-content="subtitulo_home">Produtos naturais, veganos e sem glúten</p>
   </header>
 
-  <div id="menu-placeholder"></div>
-
-  <section>
-    <p data-content="sobre_intro">Texto introdutório padrão</p>
+  <section id="instagram">
+    <h2>Nosso Instagram</h2>
+    <div class="instagram-feed">
+      <blockquote class="instagram-media" 
+        data-instgrm-permalink="https://www.instagram.com/melindaejulius/" 
+        data-instgrm-version="14">
+      </blockquote>
+    </div>
+    <script async src="//www.instagram.com/embed.js"></script>
   </section>
 
-  <!-- Instagram feed, footer, etc. -->
-
-  <script>
-    // Carrega menu e ativa link
-    fetch('menu.html')
-      .then(r => r.text()).then(data => {
-        document.getElementById('menu-placeholder').innerHTML = data;
-        document.querySelectorAll('#menu-placeholder a').forEach(link => {
-          if (link.getAttribute('href') === location.pathname.split("/").pop() || 
-              (location.pathname.split("/").pop() === "" && link.getAttribute('href') === "index.html"))
-            link.classList.add('active');
-        });
-      });
-
-    // Carrega textos da aba "Home"
-    function carregarTextos(aba) {
-      const url = `https://docs.google.com/spreadsheets/d/15nxHrFuoDs5yw9wQK43kh3BhCCsg0cPUtfk6pesCRJc/gviz/tq?tqx=out:csv&sheet=${aba}`;
-      fetch(url)
-        .then(r => r.text())
-        .then(csv => {
-          csv.split('\n').slice(1).forEach(row => {
-            const [id, ...rest] = row.split(',');
-            const texto = rest.join(',');
-            const el = document.querySelector(`[data-content="${id}"]`);
-            if (el) el.textContent = texto;
-          });
-        });
-    }
-    carregarTextos("Home");
-  </script>
+  <script src="menu.js"></script>
+  <script src="sheets.js"></script>
 </body>
 </html>
