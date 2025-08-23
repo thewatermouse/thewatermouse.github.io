@@ -3,26 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sobre - Melinda & Julius</title>
+  <title>Melinda & Julius - Sobre</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- GTM -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PMT8HCLV');</script>
 </head>
 <body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMT8HCLV"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
   <header>
-    <h1>Sobre Nós</h1>
-    <nav id="menu"></nav>
+    <h1>Melinda & Julius</h1>
+    <nav>
+      <ul id="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html" class="active">Sobre</a></li>
+        <li><a href="cardapio.html">Cardápio</a></li>
+        <li><a href="emporio.html">Empório</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
-    <section id="conteudo-sobre">Carregando...</section>
+  <main id="conteudo-sobre">
+    <h2 id="titulo_sobre">Carregando...</h2>
+    <p id="texto_sobre">Carregando...</p>
+    <img id="imagem_sobre" src="" alt="">
   </main>
 
-  <footer>
-    <p>&copy; 2025 Melinda & Julius</p>
-  </footer>
-
   <script src="script.js"></script>
-  <script>
-    carregarConteudo("Sobre", "conteudo-sobre");
-  </script>
 </body>
 </html>
