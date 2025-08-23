@@ -4,29 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contato - Melinda & Julius</title>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1 class="logo">Melinda & Julius</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="cardapio.html">Cardápio</a></li>
-        <li><a href="emporio.html">Empório</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-    </nav>
+    <h1>Fale Conosco</h1>
+    <nav id="menu"></nav>
   </header>
 
   <main>
-    <h2>Contato</h2>
-    <p>📍 Endereço: R. Dom Armando Lombardi, 511 - Caxingui, São Paulo/SP</p>
-    <p>📞 Telefone: (11) 98476-0015</p>
-    <p>📧 E-mail: melindaejulius@gmail.com.br</p>
+    <section id="conteudo-contato">Carregando...</section>
+
+    <form action="https://formspree.io/f/xblkndze" method="POST" class="contato-form">
+      <label for="nome">Nome:</label>
+      <input type="text" name="nome" id="nome" required>
+
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required>
+
+      <label for="mensagem">Mensagem:</label>
+      <textarea name="mensagem" id="mensagem" required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
   </main>
+
+  <footer>
+    <p>&copy; 2025 Melinda & Julius</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    carregarConteudo("Contato", "conteudo-contato");
+  </script>
 </body>
 </html>
-
