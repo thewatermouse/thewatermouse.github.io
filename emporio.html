@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Melinda & Julius - Empório</title>
+  <title>Empório - Melinda & Julius</title>
   <link rel="stylesheet" href="style.css">
-  <!-- GTM -->
+
+  <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-PMT8HCLV');</script>
+  <!-- End Google Tag Manager -->
 </head>
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMT8HCLV"
@@ -29,11 +31,16 @@
     </nav>
   </header>
 
-  <main id="conteudo-emporio">
-    <h2>Nossos Produtos</h2>
-    <div id="produtos-emporio">Carregando...</div>
+  <main>
+    <h2>Empório</h2>
+    <section id="conteudo-emporio">
+      <p>Carregando...</p>
+    </section>
   </main>
 
   <script src="script.js"></script>
+  <script>
+    carregarConteudo("Emporio", "conteudo-emporio");
+  </script>
 </body>
 </html>
