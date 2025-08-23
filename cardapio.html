@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Melinda & Julius - Cardápio</title>
+  <title>Cardápio - Melinda & Julius</title>
   <link rel="stylesheet" href="style.css">
-  <!-- GTM -->
+
+  <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-PMT8HCLV');</script>
+  <!-- End Google Tag Manager -->
 </head>
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMT8HCLV"
@@ -29,12 +31,16 @@
     </nav>
   </header>
 
-  <main id="conteudo-cardapio">
-    <h2 id="titulo_cardapio">Carregando...</h2>
-    <p id="texto_cardapio">Carregando...</p>
-    <img id="imagem_cardapio" src="" alt="">
+  <main>
+    <h2>Nosso Cardápio</h2>
+    <section id="conteudo-cardapio">
+      <p>Carregando...</p>
+    </section>
   </main>
 
   <script src="script.js"></script>
+  <script>
+    carregarConteudo("Cardapio", "conteudo-cardapio");
+  </script>
 </body>
 </html>
