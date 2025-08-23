@@ -1,91 +1,68 @@
-const sheetID = "15nxHrFuoDs5yw9wQK43kh3BhCCsg0cPUtfk6pesCRJc";
-const base = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?`;
+const SHEET_ID = "15nxHrFuoDs5yw9wQK43kh3BhCCsg0cPUtfk6pesCRJc";
+const BASE = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&gid=`;
 
-function carregarConteudo(aba, elementoId) {
-  const query = encodeURIComponent("SELECT A,B");
-  const url = `${base}&sheet=${aba}&tq=${query}`;
+// Mapear os GIDs de cada aba
+const PAGES = {
+  "inicio-content": "0",
+  "sobre-content": "123456789",   // substitua pelo GID real da aba "Sobre"
+  "cardapio-content": "987654321", // substitua pelo GID real da aba "Cardápio"
+  "emporio-content": "540799331", // GID da aba "Empório"
+};
 
-  fetch(url)
-    .then(res => res.text())
-    .then(rep => {
-      const data = JSON.parse(rep.substr(47).slice(0, -2));
-      let html = "";
-      data.table.rows.forEach(row => {
-        const campo = row.c[0]?.v;
-        const valor = row.c[1]?.v;
-        if (campo && valor) {
-          if (campo.toLowerCase().includes("imagem")) {
-            html += `<img src="${valor}" alt="">`;
-          } else {
-            html += `<p>${valor}</p>`;
-          }
-        }
-      });
-      document.getElementById(elementoId).innerHTML = html;
-    })
-    .catch(err => {
-      console.error("Erro ao carregar dados:", err);
-      document.getElementById(elementoId).innerHTML = "Erro ao carregar conteúdo.";
-    });
-}
+// Renderização
+async function loadContent(id, gid) {
+  try {
+    const res = await fetch(BASE + gid);
+    const text = await res.text();
+    const json = JSON.parse(text.substr(47).slice(0,-2));
+    const rows = json.table.rows;
 
-function carregarEmporio(aba, elementoId) {
-  const query = encodeURIComponent("SELECT A,B,C,D,E");
-  const url = `${base}&sheet=${aba}&tq=${query}`;
+    let html = "";
 
-  fetch(url)
-    .then(res => res.text())
-    .then(rep => {
-      const data = JSON.parse(rep.substr(47).slice(0, -2));
-      let categorias = {};
-
-      data.table.rows.forEach(row => {
-        const categoria = row.c[0]?.v;
-        const nome = row.c[1]?.v;
-        const imagem = row.c[2]?.v;
-        const preco = row.c[3]?.v;
-        const descricao = row.c[4]?.v;
-
-        if (!categoria || !nome) return;
-        if (!categorias[categoria]) categorias[categoria] = [];
-
-        categorias[categoria].push({ nome, imagem, preco, descricao });
-      });
-
-      let html = "";
-      for (const categoria in categorias) {
-        html += `<h2>${categoria}</h2><div class="produtos">`;
-        categorias[categoria].forEach(produto => {
+    if (id === "emporio-content") {
+      rows.forEach(r => {
+        if (r.c[0] && r.c[1] && r.c[2]) {
           html += `
-            <div class="produto">
-              <img src="${produto.imagem}" alt="${produto.nome}">
-              <h3>${produto.nome}</h3>
-              <p>${produto.descricao || ""}</p>
-              <strong>${produto.preco || ""}</strong>
+            <div class="product-card">
+              <img src="${r.c[2].v}" alt="${r.c[1].v}">
+              <h3>${r.c[1].v}</h3>
+              <p>${r.c[4]?.v || ""}</p>
+              <strong>${r.c[3]?.v || ""}</strong>
             </div>
           `;
-        });
-        html += "</div>";
-      }
+        }
+      });
+    } else if (id === "cardapio-content") {
+      rows.forEach(r => {
+        if (r.c[0]) {
+          html += `
+            <div class="product-card">
+              <p>${r.c[0].v}</p>
+              ${r.c[1] ? `<img src="${r.c[1].v}" alt="">` : ""}
+            </div>
+          `;
+        }
+      });
+    } else {
+      rows.forEach(r => {
+        if (r.c[0] && r.c[1]) {
+          html += `<p><strong>${r.c[0].v}:</strong> ${r.c[1].v}</p>`;
+        }
+      });
+    }
 
-      document.getElementById(elementoId).innerHTML = html;
-    })
-    .catch(err => {
-      console.error("Erro ao carregar dados:", err);
-      document.getElementById(elementoId).innerHTML = "Erro ao carregar produtos.";
-    });
+    document.getElementById(id).innerHTML = html;
+
+  } catch (e) {
+    console.error("Erro carregando conteúdo:", e);
+    document.getElementById(id).innerHTML = "<p>Erro ao carregar conteúdo.</p>";
+  }
 }
 
-// Monta o menu dinamicamente
 document.addEventListener("DOMContentLoaded", () => {
-  const menu = document.getElementById("menu");
-  if (menu) {
-    menu.innerHTML = `
-      <a href="index.html">Início</a>
-      <a href="sobre.html">Sobre</a>
-      <a href="cardapio.html">Cardápio</a>
-      <a href="emporio.html">Empório</a>
-      <a href="contato.html">Contato</a>
-    `;
-  }
+  Object.entries(PAGES).forEach(([id,gid]) => {
+    if (document.getElementById(id)) {
+      loadContent(id, gid);
+    }
+  });
 });
