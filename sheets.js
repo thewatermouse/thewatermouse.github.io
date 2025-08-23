@@ -1,68 +1,69 @@
-const SHEET_ID = "15nxHrFuoDs5yw9wQK43kh3BhCCsg0cPUtfk6pesCRJc";
-const BASE = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&gid=`;
+document.addEventListener("DOMContentLoaded", function () {
+  const publicSpreadsheetUrl = "https://docs.google.com/spreadsheets/d/15nxHrFuoDs5yw9wQK43kh3BhCCsg0cPUtfk6pesCRJc/pubhtml";
 
-// Mapear os GIDs de cada aba
-const PAGES = {
-  "inicio-content": "540799331",
-  "sobre-content": "1554737554",   // substitua pelo GID real da aba "Sobre"
-  "cardapio-content": "1728270825", // substitua pelo GID real da aba "Cardápio"
-  "emporio-content": "0", // GID da aba "Empório"
-};
-
-// Renderização
-async function loadContent(id, gid) {
-  try {
-    const res = await fetch(BASE + gid);
-    const text = await res.text();
-    const json = JSON.parse(text.substr(47).slice(0,-2));
-    const rows = json.table.rows;
-
-    let html = "";
-
-    if (id === "emporio-content") {
-      rows.forEach(r => {
-        if (r.c[0] && r.c[1] && r.c[2]) {
-          html += `
-            <div class="product-card">
-              <img src="${r.c[2].v}" alt="${r.c[1].v}">
-              <h3>${r.c[1].v}</h3>
-              <p>${r.c[4]?.v || ""}</p>
-              <strong>${r.c[3]?.v || ""}</strong>
-            </div>
-          `;
-        }
-      });
-    } else if (id === "cardapio-content") {
-      rows.forEach(r => {
-        if (r.c[0]) {
-          html += `
-            <div class="product-card">
-              <p>${r.c[0].v}</p>
-              ${r.c[1] ? `<img src="${r.c[1].v}" alt="">` : ""}
-            </div>
-          `;
-        }
-      });
-    } else {
-      rows.forEach(r => {
-        if (r.c[0] && r.c[1]) {
-          html += `<p><strong>${r.c[0].v}:</strong> ${r.c[1].v}</p>`;
-        }
-      });
-    }
-
-    document.getElementById(id).innerHTML = html;
-
-  } catch (e) {
-    console.error("Erro carregando conteúdo:", e);
-    document.getElementById(id).innerHTML = "<p>Erro ao carregar conteúdo.</p>";
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  Object.entries(PAGES).forEach(([id,gid]) => {
-    if (document.getElementById(id)) {
-      loadContent(id, gid);
-    }
+  Tabletop.init({
+    key: publicSpreadsheetUrl,
+    simpleSheet: false,
+    callback: showInfo
   });
+
+  function showInfo(data, tabletop) {
+    const page = window.location.pathname.split("/").pop();
+
+    if (page === "index.html" || page === "") {
+      const inicio = tabletop.sheets("Inicio").all();
+      inicio.forEach(item => {
+        document.getElementById("titulo").innerText = item.titulo;
+        document.getElementById("descricao").innerText = item.descricao;
+        document.getElementById("imagem").src = item.imagem;
+      });
+    }
+
+    if (page === "sobre.html") {
+      const sobre = tabletop.sheets("Sobre").all();
+      sobre.forEach(item => {
+        document.getElementById("titulo").innerText = item.titulo;
+        document.getElementById("texto").innerText = item.texto;
+        document.getElementById("imagem").src = item.imagem;
+      });
+    }
+
+    if (page === "cardapio.html") {
+      const cardapio = tabletop.sheets("Cardapio").all();
+      const container = document.getElementById("cardapio");
+      cardapio.forEach(item => {
+        const div = document.createElement("div");
+        div.classList.add("card-item");
+        div.innerHTML = `
+          <h2>${item.texto}</h2>
+          <img src="${item.imagem}" alt="Prato">
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    if (page === "emporio.html") {
+      const emporio = tabletop.sheets("Emporio").all();
+      const container = document.getElementById("emporio");
+      emporio.forEach(item => {
+        const div = document.createElement("div");
+        div.classList.add("produto");
+        div.innerHTML = `
+          <h3>${item.categoria} - ${item.nome}</h3>
+          <img src="${item.imagem}" alt="${item.nome}">
+          <p>${item.descricao}</p>
+          <p><strong>Preço:</strong> ${item.preco}</p>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    if (page === "contato.html") {
+      const contato = tabletop.sheets("Contato").all();
+      contato.forEach(item => {
+        document.getElementById("titulo").innerText = item.titulo;
+        document.getElementById("texto").innerText = item.texto;
+      });
+    }
+  }
 });
