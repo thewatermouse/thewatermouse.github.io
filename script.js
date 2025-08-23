@@ -1,69 +1,53 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const publicSpreadsheetUrl = "https://docs.google.com/spreadsheets/d/15nxHrFuoDs5yw9wQK43kh3BhCCsg0cPUtfk6pesCRJc/pubhtml";
+const sheetID = "15nxHrFuoDs5yw9wQK43kh3BhCCsg0cPUtfk6pesCRJc";
+const base = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:json&sheet=`;
 
-  Tabletop.init({
-    key: publicSpreadsheetUrl,
-    simpleSheet: false,
-    callback: showInfo
-  });
+// Função genérica para carregar conteúdo
+async function carregarConteudo(aba, elementoId) {
+  const url = `${base}${aba}`;
+  try {
+    const res = await fetch(url);
+    const text = await res.text();
+    const json = JSON.parse(text.substring(47).slice(0, -2));
 
-  function showInfo(data, tabletop) {
-    const page = window.location.pathname.split("/").pop();
-
-    if (page === "index.html" || page === "") {
-      const inicio = tabletop.sheets("Inicio").all();
-      inicio.forEach(item => {
-        document.getElementById("titulo").innerText = item.titulo;
-        document.getElementById("descricao").innerText = item.descricao;
-        document.getElementById("imagem").src = item.imagem;
-      });
-    }
-
-    if (page === "sobre.html") {
-      const sobre = tabletop.sheets("Sobre").all();
-      sobre.forEach(item => {
-        document.getElementById("titulo").innerText = item.titulo;
-        document.getElementById("texto").innerText = item.texto;
-        document.getElementById("imagem").src = item.imagem;
-      });
-    }
-
-    if (page === "cardapio.html") {
-      const cardapio = tabletop.sheets("Cardapio").all();
-      const container = document.getElementById("cardapio");
-      cardapio.forEach(item => {
-        const div = document.createElement("div");
-        div.classList.add("card-item");
-        div.innerHTML = `
-          <h2>${item.texto}</h2>
-          <img src="${item.imagem}" alt="Prato">
+    let html = "";
+    if (aba === "Emporio") {
+      json.table.rows.forEach(row => {
+        const categoria = row.c[0]?.v || "";
+        const nome = row.c[1]?.v || "";
+        const img = row.c[2]?.v || "";
+        const preco = row.c[3]?.v || "";
+        const desc = row.c[4]?.v || "";
+        html += `
+          <div class="produto">
+            <h3>${categoria} - ${nome}</h3>
+            <img src="${img}" alt="${nome}">
+            <p><strong>Preço:</strong> ${preco}</p>
+            <p>${desc}</p>
+          </div>
         `;
-        container.appendChild(div);
       });
-    }
-
-    if (page === "emporio.html") {
-      const emporio = tabletop.sheets("Emporio").all();
-      const container = document.getElementById("emporio");
-      emporio.forEach(item => {
-        const div = document.createElement("div");
-        div.classList.add("produto");
-        div.innerHTML = `
-          <h3>${item.categoria} - ${item.nome}</h3>
-          <img src="${item.imagem}" alt="${item.nome}">
-          <p>${item.descricao}</p>
-          <p><strong>Preço:</strong> ${item.preco}</p>
+    } else if (aba === "Cardapio") {
+      json.table.rows.forEach(row => {
+        const texto = row.c[0]?.v || "";
+        const img = row.c[1]?.v || "";
+        html += `
+          <div class="item-cardapio">
+            <p>${texto}</p>
+            <img src="${img}" alt="Imagem do cardápio">
+          </div>
         `;
-        container.appendChild(div);
+      });
+    } else {
+      json.table.rows.forEach(row => {
+        const campo = row.c[0]?.v || "";
+        const valor = row.c[1]?.v || "";
+        html += `<p><strong>${campo}:</strong> ${valor}</p>`;
       });
     }
 
-    if (page === "contato.html") {
-      const contato = tabletop.sheets("Contato").all();
-      contato.forEach(item => {
-        document.getElementById("titulo").innerText = item.titulo;
-        document.getElementById("texto").innerText = item.texto;
-      });
-    }
+    document.getElementById(elementoId).innerHTML = html;
+  } catch (e) {
+    console.error("Erro ao carregar dados:", e);
+    document.getElementById(elementoId).innerHTML = "<p>Erro ao carregar conteúdo.</p>";
   }
-});
+}
