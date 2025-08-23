@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cardápio - Melinda & Julius</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Melinda & Julius — Cardápio</title>
+  <link rel="stylesheet" href="style.css"/>
 
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -12,35 +12,33 @@
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-PMT8HCLV');</script>
-  <!-- End Google Tag Manager -->
 </head>
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMT8HCLV"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <header>
-    <h1>Melinda & Julius</h1>
-    <nav>
-      <ul id="menu">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="cardapio.html" class="active">Cardápio</a></li>
-        <li><a href="emporio.html">Empório</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-    </nav>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <div class="brand">Melinda & Julius</div>
+      <nav>
+        <ul class="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="cardapio.html" class="active">Cardápio</a></li>
+          <li><a href="emporio.html">Empório</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <h2>Nosso Cardápio</h2>
-    <section id="conteudo-cardapio">
+  <main class="container page">
+    <section id="conteudo-cardapio" class="content-block">
       <p>Carregando...</p>
     </section>
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/tabletop@1.6.3/src/tabletop.min.js"></script>
   <script src="script.js"></script>
-  <script>
-    carregarConteudo("Cardapio", "conteudo-cardapio");
-  </script>
 </body>
 </html>
