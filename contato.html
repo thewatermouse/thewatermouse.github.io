@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Melinda & Julius - Contato</title>
+  <title>Contato - Melinda & Julius</title>
   <link rel="stylesheet" href="style.css">
-  <!-- GTM -->
+
+  <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-PMT8HCLV');</script>
+  <!-- End Google Tag Manager -->
 </head>
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMT8HCLV"
@@ -30,24 +32,22 @@
   </header>
 
   <main>
-    <h2 id="titulo_contato">Fale Conosco</h2>
-    <p id="texto_contato">Para vender seus produtos, alugar espaços, fazer parcerias ou dúvida em geral, preencha o formulário abaixo:</p>
+    <h2>Contato</h2>
+    <section id="conteudo-contato">
+      <p>Carregando...</p>
+    </section>
 
     <form action="https://formspree.io/f/xblkndze" method="POST" class="form-contato">
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required>
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="_replyto" required>
-
-      <label for="mensagem">Mensagem:</label>
-      <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
-
+      <label>Nome:<br><input type="text" name="nome" required></label><br>
+      <label>Email:<br><input type="email" name="_replyto" required></label><br>
+      <label>Mensagem:<br><textarea name="mensagem" required></textarea></label><br>
       <button type="submit">Enviar</button>
     </form>
   </main>
 
   <script src="script.js"></script>
+  <script>
+    carregarConteudo("Contato", "conteudo-contato");
+  </script>
 </body>
 </html>
-
