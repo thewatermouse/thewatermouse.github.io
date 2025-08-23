@@ -3,10 +3,10 @@ const BASE = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out
 
 // Mapear os GIDs de cada aba
 const PAGES = {
-  "inicio-content": "0",
-  "sobre-content": "123456789",   // substitua pelo GID real da aba "Sobre"
-  "cardapio-content": "987654321", // substitua pelo GID real da aba "Cardápio"
-  "emporio-content": "540799331", // GID da aba "Empório"
+  "inicio-content": "540799331",
+  "sobre-content": "1554737554",   // substitua pelo GID real da aba "Sobre"
+  "cardapio-content": "1728270825", // substitua pelo GID real da aba "Cardápio"
+  "emporio-content": "0", // GID da aba "Empório"
 };
 
 // Renderização
