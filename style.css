@@ -1,190 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
-:root{
-  --bg:#fafafa;
-  --text:#2c3e50;
-  --muted:#5d6d7e;
-  --brand:#2c3e50;
-  --accent:#f1c40f;
-  --card:#ffffff;
-  --border:#e5e7eb;
+/* Reset básico */
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-*{ box-sizing:border-box; }
-
-html,body{
-  margin:0;
-  padding:0;
-  font-family:'Poppins',sans-serif;
-  background:var(--bg);
-  color:var(--text);
+/* Layout base */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
 }
 
-.container{
-  width:100%;
-  max-width:1100px;
-  margin:0 auto;
-  padding:0 16px;
+/* Header / Navbar */
+header {
+  background-color: #2e7d32; /* Verde identidade */
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:10;
-  background:var(--brand);
-  color:#fff;
-  border-bottom:1px solid rgba(255,255,255,.1);
+nav {
+  background-color: #388e3c;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
 }
 
-.nav-wrap{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:12px 0;
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1.1rem;
 }
 
-.brand{
-  font-weight:700;
-  font-size:1.4rem;
-  color:var(--accent);
+nav a:hover {
+  text-decoration: underline;
 }
 
-.menu{
-  list-style:none;
-  display:flex;
-  gap:18px;
-  margin:0;
-  padding:0;
+/* Conteúdo */
+main {
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
 }
 
-.menu a{
-  text-decoration:none;
-  color:#fff;
-  font-weight:600;
-  padding:8px 10px;
-  border-radius:8px;
+/* Empório grid */
+.emporio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
 }
 
-.menu a.active,
-.menu a:hover{
-  background:rgba(241,196,15,.15);
-  color:var(--accent);
+.produto {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
 }
 
-.page{
-  padding:28px 0 48px 0;
+.produto img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
-.content-block{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:24px;
-  box-shadow:0 2px 10px rgba(0,0,0,.04);
+.produto h3 {
+  color: #2e7d32;
+  margin-bottom: 8px;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-  gap:18px;
+.produto p {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
 }
-
-/* Cards genéricos */
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:16px;
-  text-align:left;
-  box-shadow:0 2px 8px rgba(0,0,0,.05);
-}
-
-.card img{
-  width:100%;
-  height:auto;
-  border-radius:10px;
-  display:block;
-  margin:8px 0 10px;
-}
-
-.card h3{
-  margin:0 0 6px 0;
-  font-size:1.05rem;
-}
-
-.card .muted{
-  color:var(--muted);
-  font-size:.9rem;
-}
-
-/* Empório */
-.product{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:16px;
-  box-shadow:0 2px 8px rgba(0,0,0,.05);
-}
-.product .category{
-  display:inline-block;
-  font-size:.75rem;
-  padding:4px 8px;
-  border-radius:999px;
-  background:rgba(44,62,80,.08);
-  color:var(--text);
-  margin-bottom:8px;
-}
-.product img{
-  width:100%;
-  height:auto;
-  border-radius:10px;
-  margin:8px 0;
-}
-.product .price{
-  font-weight:700;
-  margin-top:6px;
-  color:#1b5e20;
-}
-
-/* Formulário */
-.form-contato{
-  margin-top:24px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:20px;
-  box-shadow:0 2px 8px rgba(0,0,0,.05);
-}
-.form-contato label{
-  display:block;
-  font-weight:600;
-  margin-bottom:8px;
-  color:var(--text);
-}
-.form-contato input,
-.form-contato textarea{
-  width:100%;
-  padding:10px 12px;
-  border:1px solid var(--border);
-  border-radius:10px;
-  outline:none;
-  font-family:inherit;
-  margin:6px 0 14px 0;
-  background:#fff;
-}
-.form-contato button{
-  background:var(--brand);
-  color:#fff;
-  border:none;
-  padding:10px 16px;
-  border-radius:10px;
-  font-weight:700;
-  cursor:pointer;
-}
-.form-contato button:hover{
-  background:#1f2d3a;
-}
-
-/* Imagens e textos longos */
-.content-block img, .page img{ max-width:100%; height:auto; }
-.content-block p{ line-height:1.7; }
