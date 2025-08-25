@@ -1,84 +1,60 @@
-/* Reset básico */
-body, h1, h2, h3, p, ul, li {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Base */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:'Poppins',sans-serif;
+  background:#f9f9f9;
+  color:#333;
+  line-height:1.6;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-  line-height: 1.6;
-}
+/* Container padrão */
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
 
-/* Header + Navbar juntos em uma linha */
-header {
-  background-color: #2e7d32; /* Verde identidade */
-  color: white;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between; /* título à esquerda, menu à direita */
-  align-items: center;
+/* Topo (uma barra, tudo em uma linha) */
+.site-header{
+  position:sticky;top:0;z-index:10;
+  background:#2e7d32; /* verde principal */
+  color:#fff;border-bottom:1px solid rgba(255,255,255,.12);
 }
+.nav-wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 0;
+}
+.brand{font-weight:700;font-size:1.35rem}
+.menu{list-style:none;display:flex;gap:18px}
+.menu a{
+  color:#fff;text-decoration:none;font-weight:600;
+  padding:8px 12px;border-radius:10px;display:inline-block
+}
+.menu a:hover,.menu a.active{background:rgba(255,255,255,.12)}
 
-header h1 {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
+/* Página */
+.page{padding:28px 0 48px}
+#content{min-height:200px}
 
-/* Menu */
-nav {
-  display: flex;
-  gap: 20px;
-}
+/* Blocos de texto padrão */
+.texto-bloco{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:20px;margin-bottom:18px}
+.texto-bloco img{max-width:100%;height:auto;border-radius:10px;margin-top:10px}
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.1rem;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* Conteúdo */
-main {
-  padding: 20px;
-  max-width: 1000px;
-  margin: auto;
-}
+/* Cardápio itens simples */
+.cardapio-item{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:18px;margin-bottom:16px}
+.cardapio-item img{max-width:100%;height:auto;border-radius:10px;margin-top:10px}
 
 /* Empório grid */
-.emporio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
+.emporio-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px
 }
+.produto{
+  background:#fff;border:1px solid #e5e7eb;border-radius:12px;
+  padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.05)
+}
+.produto img{max-width:100%;height:auto;border-radius:10px;margin-bottom:10px}
+.produto h3{color:#2e7d32;margin-bottom:6px;font-size:1.05rem}
+.produto p{font-size:.95rem;margin-bottom:6px}
 
-.produto {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 15px;
-  text-align: center;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-}
-
-.produto img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.produto h3 {
-  color: #2e7d32;
-  margin-bottom: 8px;
-}
-
-.produto p {
-  font-size: 0.9rem;
-  margin-bottom: 5px;
-}
+/* Rodapé simples */
+.site-footer{background:#388e3c;color:#fff}
+.site-footer .container{padding:14px 0;text-align:center}
