@@ -5,7 +5,6 @@ body, h1, h2, h3, p, ul, li {
   box-sizing: border-box;
 }
 
-/* Layout base */
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #f9f9f9;
@@ -13,27 +12,30 @@ body {
   line-height: 1.6;
 }
 
-/* Header / Navbar */
+/* Header + Navbar juntos em uma linha */
 header {
   background-color: #2e7d32; /* Verde identidade */
   color: white;
-  padding: 20px;
-  text-align: center;
-  font-size: 2rem;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between; /* título à esquerda, menu à direita */
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.8rem;
   font-weight: bold;
 }
 
+/* Menu */
 nav {
-  background-color: #388e3c;
   display: flex;
-  justify-content: center;
-  padding: 10px 0;
+  gap: 20px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  margin: 0 15px;
   font-size: 1.1rem;
 }
 
