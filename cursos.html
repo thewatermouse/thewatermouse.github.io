@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cursos &amp; Eventos — Melinda &amp; Julius</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PMT8HCLV');</script>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMT8HCLV"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand"><img src="logo.png" alt="Melinda &amp; Julius" class="brand-logo"></a>
+      <button class="hamburger" aria-label="Menu" onclick="this.classList.toggle('open');document.querySelector('.nav-menu').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <nav><ul class="nav-menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="cardapio.html">Cardápio</a></li>
+          <li><a href="emporio.html">Empório</a></li>
+          <li><a href="cursos.html" class="active">Cursos &amp; Eventos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+      </ul></nav>
+    </div>
+  </header>
+
+<div class="page-header page-header--verde">
+  <div class="container">
+    <p class="eyebrow">Encontros, aprendizado e troca</p>
+    <h1>Cursos &amp; <em>Eventos</em></h1>
+    <p class="header-sub">Organizamos cursos e encontros sobre alimentação, sustentabilidade, meditação, yoga e meio ambiente. Espaços de troca, nem sempre palestras formais.</p>
+  </div>
+</div>
+
+<!-- CTA AVISO -->
+<div class="container">
+  <div class="aviso-bar reveal" style="margin-top:2.5rem">
+    📩 Para ser avisado sobre os próximos encontros, siga <a href="https://instagram.com/melindaejulius" target="_blank">@melindaejulius</a> ou mande um e-mail para <a href="mailto:melindaejulius@gmail.com">melindaejulius@gmail.com</a> com o assunto <strong>"Cursos"</strong>.
+  </div>
+</div>
+
+<!-- GRID DE CURSOS -->
+<section class="cursos-section">
+  <div class="container">
+    <p class="section-label reveal">O que já realizamos</p>
+    <h2 class="section-title reveal">Eventos &amp; cursos <em>anteriores</em></h2>
+    <div class="cursos-grid">
+      
+    <article class="curso-card reveal" id="curso-1">
+      <div class="curso-hero-img">
+        <div class="curso-hero-placeholder"><!-- FOTO HERO: foto ambiente do curso, participantes na cozinha --></div>
+        <div class="curso-hero-overlay">
+          <span class="curso-tag">Alimentação</span>
+          <h2>Introdução à Macrobiótica</h2>
+        </div>
+      </div>
+      <div class="curso-body">
+        <p class="curso-desc">Um mergulho nos princípios da culinária macrobiótica — equilíbrio yin & yang, grãos integrais, fermentados e o papel do alimento como medicina. Teoria e prática na cozinha.</p>
+        <div class="carrossel" data-idx="0">
+          <div class="carrossel-track">
+            <div class="carrossel-slide"><div class="carrossel-placeholder"><!-- FOTO 1: detalhe dos ingredientes --></div></div>
+            <div class="carrossel-slide"><div class="carrossel-placeholder"><!-- FOTO 2: participantes preparando o prato --></div></div>
+            <div class="carrossel-slide"><div class="carrossel-placeholder"><!-- FOTO 3: prato finalizado --></div></div>
+          </div>
+          <button class="carrossel-btn carrossel-prev" onclick="moverCarrossel(this,-1)" aria-label="Anterior">‹</button>
+          <button class="carrossel-btn carrossel-next" onclick="moverCarrossel(this,1)" aria-label="Próximo">›</button>
+          <div class="carrossel-dots">
+            <span class="carrossel-dot active"></span><span class="carrossel-dot"></span><span class="carrossel-dot"></span>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="curso-card reveal" id="curso-2">
+      <div class="curso-hero-img">
+        <div class="curso-hero-placeholder"><!-- FOTO HERO: mesa com ingredientes naturais, luz natural --></div>
+        <div class="curso-hero-overlay">
+          <span class="curso-tag">Culinária</span>
+          <h2>Culinária Natural para o Dia a Dia</h2>
+        </div>
+      </div>
+      <div class="curso-body">
+        <p class="curso-desc">Como incorporar hábitos de alimentação natural na rotina sem complicação. Receitas práticas, substituições inteligentes e como usar os produtos do empório com criatividade.</p>
+        <div class="carrossel" data-idx="0">
+          <div class="carrossel-track">
+            <div class="carrossel-slide"><div class="carrossel-placeholder"><!-- FOTO 1: receita sendo preparada --></div></div>
+            <div class="carrossel-slide"><div class="carrossel-placeholder"><!-- FOTO 2: resultado final --></div></div>
+            <div class="carrossel-slide"><div class="carrossel-placeholder"><!-- FOTO 3: participantes degustando --></div></div>
+          </div>
+          <button class="carrossel-btn carrossel-prev" onclick="moverCarrossel(this,-1)" aria-label="Anterior">‹</button>
+          <button class="carrossel-btn carrossel-next" onclick="moverCarrossel(this,1)" aria-label="Próximo">›</button>
+          <div class="carrossel-dots">
+            <span class="carrossel-dot active"></span><span class="carrossel-dot"></span><span class="carrossel-dot"></span>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="curso-card reveal" id="curso-3">
+      <div class="curso-hero-img">
+        <div class="curso-hero-placeholder"><!-- FOTO HERO: potes de fermentados, ambiente do curso --></div>
+        <div class="curso-hero-overlay">
+          <span class="curso-tag">Fermentação</span>
+          <h2>Fermentados: Missô, Chucrute e Kombucha</h2>
+        </div>
+      </div>
+      <div class="curso-body">
+        <p class="curso-desc">A arte e a ciência dos alimentos fermentados. Aprenda a fazer missô artesanal, chucrute, kimchi e kombucha em casa — com probióticos naturais que transformam a saúde.</p>
+        <div class="carrossel" data-idx="0">
+          <div class="carrossel-track">
+            <div class="carrossel-slide"><div class="carrossel-placeholder"><!-- FOTO 1: potes e ingredientes --></div></div>
+            <div class="carrossel-slide"><div class="carrossel-placeholder"><!-- FOTO 2: processo de fermentação --></div></div>
+            <div class="carrossel-slide"><div class="carrossel-placeholder"><!-- FOTO 3: produto finalizado --></div></div>
+          </div>
+          <button class="carrossel-btn carrossel-prev" onclick="moverCarrossel(this,-1)" aria-label="Anterior">‹</button>
+          <button class="carrossel-btn carrossel-next" onclick="moverCarrossel(this,1)" aria-label="Próximo">›</button>
+          <div class="carrossel-dots">
+            <span class="carrossel-dot active"></span><span class="carrossel-dot"></span><span class="carrossel-dot"></span>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="curso-card reveal" id="curso-4">
+      <div class="curso-hero-img">
+        <div class="curso-hero-placeholder"><!-- FOTO HERO: área externa da loja, painel solar, área verde --></div>
+        <div class="curso-hero-overlay">
+          <span class="curso-tag">Meio Ambiente</span>
+          <h2>Sustentabilidade e Consumo Consciente</h2>
+        </div>
+      </div>
+      <div class="curso-body">
+        <p class="curso-desc">Uma conversa sobre como nossas escolhas de consumo impactam o planeta. Compostagem, redução de desperdício, embalagens, produção orgânica e o papel do consumidor.</p>
+        <div class="carrossel" data-idx="0">
+          <div class="carrossel-track">
+            <div class="carrossel-slide"><div class="carrossel-placeholder"><!-- FOTO 1: painel solar fotovoltaico --></div></div>
+            <div class="carrossel-slide"><div class="carrossel-placeholder"><!-- FOTO 2: composteira --></div></div>
+            <div class="carrossel-slide"><div class="carrossel-placeholder"><!-- FOTO 3: participantes em debate --></div></div>
+          </div>
+          <button class="carrossel-btn carrossel-prev" onclick="moverCarrossel(this,-1)" aria-label="Anterior">‹</button>
+          <button class="carrossel-btn carrossel-next" onclick="moverCarrossel(this,1)" aria-label="Próximo">›</button>
+          <div class="carrossel-dots">
+            <span class="carrossel-dot active"></span><span class="carrossel-dot"></span><span class="carrossel-dot"></span>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="curso-card reveal" id="curso-5">
+      <div class="curso-hero-img">
+        <div class="curso-hero-placeholder"><!-- FOTO HERO: prática de yoga no espaço, luz natural --></div>
+        <div class="curso-hero-overlay">
+          <span class="curso-tag">Bem-estar</span>
+          <h2>Yoga e Alimentação Consciente</h2>
+        </div>
+      </div>
+      <div class="curso-body">
+        <p class="curso-desc">Encontro integrando prática de yoga, meditação e princípios de alimentação consciente. Uma manhã de cuidado com corpo e mente no espaço do Melinda & Julius.</p>
+        <div class="carrossel" data-idx="0">
+          <div class="carrossel-track">
+            <div class="carrossel-slide"><div class="carrossel-placeholder"><!-- FOTO 1: roda de meditação --></div></div>
+            <div class="carrossel-slide"><div class="carrossel-placeholder"><!-- FOTO 2: prática de yoga --></div></div>
+            <div class="carrossel-slide"><div class="carrossel-placeholder"><!-- FOTO 3: mesa de frutas e chás após a prática --></div></div>
+          </div>
+          <button class="carrossel-btn carrossel-prev" onclick="moverCarrossel(this,-1)" aria-label="Anterior">‹</button>
+          <button class="carrossel-btn carrossel-next" onclick="moverCarrossel(this,1)" aria-label="Próximo">›</button>
+          <div class="carrossel-dots">
+            <span class="carrossel-dot active"></span><span class="carrossel-dot"></span><span class="carrossel-dot"></span>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="curso-card reveal" id="curso-6">
+      <div class="curso-hero-img">
+        <div class="curso-hero-placeholder"><!-- FOTO HERO: pães saindo do forno, atelier de panificação --></div>
+        <div class="curso-hero-overlay">
+          <span class="curso-tag">Panificação</span>
+          <h2>Pães Integrais e Sem Glúten</h2>
+        </div>
+      </div>
+      <div class="curso-body">
+        <p class="curso-desc">Técnicas de panificação natural com farinhas integrais, sem glúten e orgânicas. Do levain ao forno, aprenda a fazer pães nutritivos e gostosos do zero.</p>
+        <div class="carrossel" data-idx="0">
+          <div class="carrossel-track">
+            <div class="carrossel-slide"><div class="carrossel-placeholder"><!-- FOTO 1: massa sendo sovada --></div></div>
+            <div class="carrossel-slide"><div class="carrossel-placeholder"><!-- FOTO 2: pães no forno --></div></div>
+            <div class="carrossel-slide"><div class="carrossel-placeholder"><!-- FOTO 3: resultado final com participantes --></div></div>
+          </div>
+          <button class="carrossel-btn carrossel-prev" onclick="moverCarrossel(this,-1)" aria-label="Anterior">‹</button>
+          <button class="carrossel-btn carrossel-next" onclick="moverCarrossel(this,1)" aria-label="Próximo">›</button>
+          <div class="carrossel-dots">
+            <span class="carrossel-dot active"></span><span class="carrossel-dot"></span><span class="carrossel-dot"></span>
+          </div>
+        </div>
+      </div>
+    </article>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER CONTATO -->
+<section class="banner-feijoada">
+  <div class="container banner-inner reveal">
+    <div>
+      <span class="eyebrow" style="color:var(--verde-claro)">Próximos eventos</span>
+      <h2>Quer participar dos <em>próximos</em>?</h2>
+      <p>Siga no Instagram para não perder nenhum encontro, ou mande um e-mail e te avisamos diretamente.</p>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="https://instagram.com/melindaejulius" target="_blank" class="btn-primary">Seguir no Instagram</a>
+      <a href="mailto:melindaejulius@gmail.com?subject=Cursos" class="btn-primary" style="background:rgba(242,234,216,0.15);color:var(--bege-quente);border:1px solid rgba(242,234,216,0.3)">Avisar por e-mail</a>
+    </div>
+  </div>
+</section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="logo.png" alt="Melinda &amp; Julius" class="footer-logo">
+      <p class="footer-copy">© 2025 · Restaurante Macrobiótico &amp; Empório Orgânico · São Paulo</p>
+      <div class="footer-links">
+        <a href="https://instagram.com/melindaejulius" target="_blank">Instagram</a>
+        <a href="contato.html">Contato</a>
+      </div>
+    </div>
+  </footer>
+<script>
+  const _obs = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); _obs.unobserve(e.target); } });
+  },{threshold:0.08,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>_obs.observe(el));
+  const _nav=document.querySelector('.site-header');
+  window.addEventListener('scroll',()=>{ _nav.style.boxShadow=window.scrollY>20?'0 2px 30px rgba(45,74,46,0.12)':'none'; });
+</script>
+<script>
+function moverCarrossel(btn, dir) {
+  const carrossel = btn.closest('.carrossel');
+  const track = carrossel.querySelector('.carrossel-track');
+  const slides = carrossel.querySelectorAll('.carrossel-slide');
+  const dots = carrossel.querySelectorAll('.carrossel-dot');
+  let idx = parseInt(carrossel.dataset.idx || 0);
+  idx = (idx + dir + slides.length) % slides.length;
+  carrossel.dataset.idx = idx;
+  track.style.transform = `translateX(-${idx * 100}%)`;
+  dots.forEach((d,i) => d.classList.toggle('active', i === idx));
+}
+</script>
+</body>
+</html>

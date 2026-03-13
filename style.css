@@ -421,3 +421,195 @@ body::before {
 @media (max-width: 768px) {
   .pedido-whatsapp { flex-direction: column; padding: 2rem 1.5rem; }
 }
+
+/* ─── PEDIR / ENTREGA (cardápio) ─────────────────────────────────── */
+.pedir-section { background: var(--bege-quente); padding: 5rem 0; }
+
+.pedir-botoes {
+  display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3.5rem;
+}
+.btn-pedir {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: 'DM Sans', sans-serif; font-size: 0.82rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 1rem 2rem; text-decoration: none;
+  border-radius: 2px; font-weight: 500; transition: all 0.2s;
+}
+.btn-pedir--ifood { background: #ea1d2c; color: #fff; }
+.btn-pedir--ifood:hover { background: #c4121f; }
+.btn-pedir--whatsapp { background: #25D366; color: #fff; }
+.btn-pedir--whatsapp:hover { background: #1fba58; }
+
+.entrega-form-wrap {
+  background: #fff; border: 1px solid rgba(45,74,46,0.1);
+  padding: 2.5rem 3rem;
+}
+.entrega-form-header { margin-bottom: 2rem; }
+.entrega-form-header h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
+  color: var(--verde-escuro); margin-bottom: 0.5rem;
+}
+.entrega-form-header p {
+  font-family: 'DM Sans', sans-serif; font-size: 0.88rem;
+  color: var(--cinza-texto); line-height: 1.65;
+}
+.entrega-form-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.1rem; margin-bottom: 1.5rem;
+}
+.entrega-form label {
+  font-family: 'DM Sans', sans-serif; font-size: 0.72rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--cinza-texto); display: flex; flex-direction: column; gap: 0.4rem;
+}
+.entrega-form input {
+  font-family: 'DM Sans', sans-serif; font-size: 0.9rem; letter-spacing: 0;
+  color: var(--marrom-texto); background: var(--creme);
+  border: 1px solid rgba(45,74,46,0.18); border-radius: 2px;
+  padding: 0.75rem 1rem; outline: none; transition: border-color 0.2s;
+}
+.entrega-form input:focus { border-color: var(--verde-medio); background: #fff; }
+/* endereço ocupa linha inteira */
+.entrega-form-grid label:last-child { grid-column: 1 / -1; }
+
+.entrega-resultado {
+  margin-top: 1.5rem; padding: 1.25rem 1.5rem;
+  font-family: 'DM Sans', sans-serif; font-size: 0.9rem; line-height: 1.65;
+  border-radius: 2px;
+}
+.entrega-resultado--sucesso { background: rgba(45,74,46,0.08); color: var(--verde-escuro); border-left: 3px solid var(--verde-medio); }
+.entrega-resultado--aviso   { background: rgba(196,112,58,0.1); color: var(--cinza-texto); border-left: 3px solid var(--terracota); }
+.entrega-resultado a { color: var(--verde-escuro); font-weight: 500; }
+
+@media (max-width: 768px) {
+  .entrega-form-grid { grid-template-columns: 1fr; }
+  .entrega-form-wrap { padding: 1.75rem 1.25rem; }
+  .pedir-botoes { flex-direction: column; }
+  .btn-pedir { justify-content: center; }
+}
+
+/* ─── SUSTENTABILIDADE (sobre) ───────────────────────────────────── */
+.sustentabilidade-bloco { margin-top: 2rem; }
+.sustenta-lista {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+.sustenta-lista li {
+  font-family: 'DM Sans', sans-serif; font-size: 0.88rem;
+  color: var(--cinza-texto); line-height: 1.5;
+  padding: 0.5rem 0.75rem;
+  background: rgba(45,74,46,0.06);
+  border-left: 2px solid var(--verde-claro);
+}
+
+/* ─── CURSOS & EVENTOS ───────────────────────────────────────────── */
+.cursos-section { padding: 4rem 0 6rem; }
+.cursos-grid { display: flex; flex-direction: column; gap: 5rem; margin-top: 1rem; }
+
+.curso-card { overflow: hidden; background: #fff; border: 1px solid rgba(45,74,46,0.1); }
+
+.curso-hero-img {
+  position: relative; width: 100%;
+  aspect-ratio: 16/6; overflow: hidden;
+  background: var(--verde-escuro);
+}
+.curso-hero-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--verde-escuro) 0%, var(--verde-medio) 100%);
+  font-family: 'DM Sans', sans-serif; font-size: 0.75rem;
+  color: rgba(242,234,216,0.3); text-align: center; padding: 1rem;
+  font-style: italic;
+}
+.curso-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(20,35,20,0.85) 0%, transparent 60%);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 2rem 2.5rem;
+}
+.curso-tag {
+  font-family: 'DM Sans', sans-serif; font-size: 0.65rem;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--verde-claro);
+  margin-bottom: 0.5rem; display: block;
+}
+.curso-hero-overlay h2 {
+  font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700; color: var(--bege-quente); line-height: 1.15;
+}
+
+.curso-body { padding: 2rem 2.5rem 2.5rem; }
+.curso-desc {
+  font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+  color: var(--cinza-texto); line-height: 1.75;
+  max-width: 680px; margin-bottom: 2rem;
+}
+
+/* Carrossel */
+.carrossel {
+  position: relative; overflow: hidden;
+  aspect-ratio: 16/7; background: var(--bege-escuro);
+}
+.carrossel-track {
+  display: flex; height: 100%;
+  transition: transform 0.45s cubic-bezier(0.25,0.1,0.25,1);
+}
+.carrossel-slide { min-width: 100%; height: 100%; flex-shrink: 0; }
+.carrossel-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--bege-escuro) 0%, var(--bege-quente) 100%);
+  font-family: 'DM Sans', sans-serif; font-size: 0.75rem;
+  color: rgba(90,74,58,0.4); text-align: center; padding: 1.5rem;
+  font-style: italic;
+}
+.carrossel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(45,74,46,0.75); color: var(--bege-quente);
+  border: none; width: 40px; height: 40px; font-size: 1.4rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s; z-index: 2; line-height: 1;
+}
+.carrossel-btn:hover { background: var(--verde-escuro); }
+.carrossel-prev { left: 0.75rem; }
+.carrossel-next { right: 0.75rem; }
+.carrossel-dots {
+  position: absolute; bottom: 0.75rem; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 0.4rem;
+}
+.carrossel-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(242,234,216,0.4); transition: background 0.2s;
+}
+.carrossel-dot.active { background: var(--bege-quente); }
+
+@media (max-width: 768px) {
+  .curso-hero-overlay { padding: 1.25rem 1.5rem; }
+  .curso-body { padding: 1.5rem; }
+}
+
+/* ─── MARCAS (empório) ───────────────────────────────────────────── */
+.marcas-section { background: var(--bege-quente); padding: 5rem 0; }
+.marcas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.5rem; margin-top: 2rem;
+}
+.marca-item {
+  background: #fff; border: 1px solid rgba(45,74,46,0.08);
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.5rem 1rem; aspect-ratio: 2/1;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.marca-item:hover { box-shadow: 0 8px 30px rgba(45,74,46,0.1); transform: translateY(-3px); }
+.marca-item img {
+  max-width: 100%; max-height: 56px;
+  object-fit: contain; filter: grayscale(0.3) saturate(0.85);
+  transition: filter 0.2s;
+}
+.marca-item:hover img { filter: grayscale(0) saturate(1); }
+.marca-nome-fallback {
+  display: none; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700;
+  color: var(--verde-escuro); text-align: center;
+}
