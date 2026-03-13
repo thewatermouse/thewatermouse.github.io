@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Melinda & Julius — Início</title>
+  <title>Melinda & Julius — Empório Orgânico e Restaurante Macrobiótico no Morumbi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css"/>
-
-  <!-- GTM -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -16,30 +15,101 @@
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMT8HCLV"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
   <header class="site-header">
     <div class="container nav-wrap">
-      <div class="brand">Melinda & Julius</div>
-      <nav>
-        <ul class="menu">
-          <li><a class="active" href="index.html">Início</a></li>
+      <a href="index.html" class="brand"><img src="logo.png" alt="Melinda &amp; Julius" class="brand-logo"></a>
+      <button class="hamburger" aria-label="Menu" onclick="this.classList.toggle('open');document.querySelector('.nav-menu').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <nav><ul class="nav-menu">
+          <li><a href="index.html" class="active">Início</a></li>
           <li><a href="sobre.html">Sobre</a></li>
           <li><a href="cardapio.html">Cardápio</a></li>
           <li><a href="emporio.html">Empório</a></li>
           <li><a href="contato.html">Contato</a></li>
-        </ul>
-      </nav>
+      </ul></nav>
     </div>
   </header>
 
-  <main class="container page">
-    <div id="content">Carregando...</div>
-  </main>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-since">Desde 2007</div>
+    <p class="eyebrow">Restaurante Macrobiótico &amp; Empório Orgânico</p>
+    <h1 class="hero-title">Empório Orgânico e Restaurante <em>Macrobiótico</em> no Morumbi</h1>
+    <p class="hero-desc">Nosso compromisso é oferecer alimentação macrobiótica, saudável e orgânica.</p>
+    <div class="hero-actions">
+      <a href="cardapio.html" class="btn-primary">Ver o cardápio</a>
+      <a href="emporio.html" class="btn-ghost">Conheça o empório →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=900&q=80&fit=crop" alt="Prato macrobiótico">
+    <div class="hero-right-overlay"></div>
+  </div>
+</section>
+
+<!-- SHEETS: avisos / destaques do dia gerenciados pela planilha -->
+<section class="sheets-section container">
+  <div id="content"></div>
+</section>
+
+<section class="strip-stats">
+  <div class="container strip-grid">
+    <div class="strip-stat reveal"><span class="stat-n">17+</span><span class="stat-l">Anos de história</span></div>
+    <div class="strip-stat reveal"><span class="stat-n">2000+</span><span class="stat-l">Produtos orgânicos</span></div>
+    <div class="strip-stat reveal"><span class="stat-n">100%</span><span class="stat-l">Certificados</span></div>
+    <div class="strip-stat reveal"><span class="stat-n">120+</span><span class="stat-l">Títulos na livraria</span></div>
+  </div>
+</section>
+
+<section class="cards-section">
+  <div class="container">
+    <div class="cards-grid">
+      <a href="cardapio.html" class="card-link reveal">
+        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=700&q=80&fit=crop')"></div>
+        <div class="card-body"><span class="card-tag">Restaurante</span><h3>Cardápio do dia</h3><p>Pratos macrobióticos feitos do zero todos os dias, com ingredientes orgânicos da estação.</p></div>
+      </a>
+      <a href="emporio.html" class="card-link reveal">
+        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=700&q=80&fit=crop')"></div>
+        <div class="card-body"><span class="card-tag">Empório</span><h3>Mais de 2.000 produtos</h3><p>Grãos, fermentados, chás, cosméticos naturais — tudo orgânico e certificado.</p></div>
+      </a>
+      <a href="sobre.html" class="card-link reveal">
+        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=700&q=80&fit=crop')"></div>
+        <div class="card-body"><span class="card-tag">Filosofia</span><h3>A macrobiótica</h3><p>Uma forma de comer com consciência, equilíbrio e respeito pelo corpo e pela natureza.</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="banner-feijoada">
+  <div class="container banner-inner reveal">
+    <div>
+      <span class="eyebrow" style="color:var(--verde-claro)">Especial · Quartas e Sábados</span>
+      <h2>Feijoada <em>Vegana</em></h2>
+      <p>A tradição brasileira reimaginada: feijão preto orgânico, couve, farofa, arroz integral. Sem carne, com toda a alma.</p>
+    </div>
+    <a href="cardapio.html" class="btn-primary">Ver cardápio completo</a>
+  </div>
+</section>
 
   <footer class="site-footer">
-    <div class="container">© Melinda & Julius</div>
+    <div class="container footer-inner">
+      <img src="logo.png" alt="Melinda &amp; Julius" class="footer-logo">
+      <p class="footer-copy">© 2025 · Restaurante Macrobiótico &amp; Empório Orgânico · São Paulo</p>
+      <div class="footer-links">
+        <a href="https://instagram.com/melindaejulius" target="_blank">Instagram</a>
+        <a href="contato.html">Contato</a>
+      </div>
+    </div>
   </footer>
-
-  <script src="script.js"></script>
+<script>
+  const _obs = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); _obs.unobserve(e.target); } });
+  },{threshold:0.08,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>_obs.observe(el));
+  const _nav=document.querySelector('.site-header');
+  window.addEventListener('scroll',()=>{ _nav.style.boxShadow=window.scrollY>20?'0 2px 30px rgba(45,74,46,0.12)':'none'; });
+</script>
+<script src="script.js"></script>
 </body>
 </html>

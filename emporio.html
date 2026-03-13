@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Melinda & Julius — Empório</title>
+  <title>Empório — Melinda & Julius</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css"/>
-
-  <!-- GTM -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -16,30 +15,80 @@
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMT8HCLV"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
   <header class="site-header">
     <div class="container nav-wrap">
-      <div class="brand">Melinda & Julius</div>
-      <nav>
-        <ul class="menu">
+      <a href="index.html" class="brand"><img src="logo.png" alt="Melinda &amp; Julius" class="brand-logo"></a>
+      <button class="hamburger" aria-label="Menu" onclick="this.classList.toggle('open');document.querySelector('.nav-menu').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <nav><ul class="nav-menu">
           <li><a href="index.html">Início</a></li>
           <li><a href="sobre.html">Sobre</a></li>
           <li><a href="cardapio.html">Cardápio</a></li>
-          <li><a class="active" href="emporio.html">Empório</a></li>
+          <li><a href="emporio.html" class="active">Empório</a></li>
           <li><a href="contato.html">Contato</a></li>
-        </ul>
-      </nav>
+      </ul></nav>
     </div>
   </header>
 
-  <main class="container page">
-    <div id="content">Carregando...</div>
-  </main>
+<div class="page-header page-header--bege">
+  <div class="container emporio-header-grid">
+    <div>
+      <p class="eyebrow" style="color:var(--terracota)">Mais de 2.000 produtos</p>
+      <h1 style="color:var(--verde-escuro)">Empório <em>Orgânico</em></h1>
+      <p class="header-sub" style="color:var(--cinza-texto)">Uma curadoria de produtos orgânicos certificados: grãos, fermentados, chás, higiene natural, doces e livraria.</p>
+    </div>
+    <div class="cats-bar reveal">
+      <span>🌾 Grãos &amp; Farinhas</span>
+      <span>🫙 Fermentados</span>
+      <span>🌿 Chás &amp; Ervas</span>
+      <span>🧴 Higiene Natural</span>
+      <span>🍫 Doces &amp; Snacks</span>
+      <span>📚 Livraria</span>
+      <span>🥫 Conservas</span>
+      <span>🌱 Suplementos</span>
+    </div>
+  </div>
+</div>
+
+<section class="emporio-section">
+  <div class="container">
+    <p class="section-label reveal">Produtos em destaque</p>
+    <h2 class="section-title reveal">O que você encontra <em>aqui</em></h2>
+    <!-- SHEETS: produtos gerenciados pela planilha (renderEmporio injeta .emporio-grid) -->
+    <div id="content"></div>
+  </div>
+</section>
+
+<section class="banner-feijoada">
+  <div class="container banner-inner reveal">
+    <div>
+      <span class="eyebrow" style="color:var(--verde-claro)">Delivery</span>
+      <h2>Feira Orgânica na sua <em>porta</em></h2>
+      <p>Cesta semanal ou quinzenal com os melhores orgânicos selecionados pela nossa equipe. Entregamos no Morumbi e arredores.</p>
+    </div>
+    <a href="contato.html" class="btn-primary">Quero minha cesta</a>
+  </div>
+</section>
 
   <footer class="site-footer">
-    <div class="container">© Melinda & Julius</div>
+    <div class="container footer-inner">
+      <img src="logo.png" alt="Melinda &amp; Julius" class="footer-logo">
+      <p class="footer-copy">© 2025 · Restaurante Macrobiótico &amp; Empório Orgânico · São Paulo</p>
+      <div class="footer-links">
+        <a href="https://instagram.com/melindaejulius" target="_blank">Instagram</a>
+        <a href="contato.html">Contato</a>
+      </div>
+    </div>
   </footer>
-
-  <script src="script.js"></script>
+<script>
+  const _obs = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); _obs.unobserve(e.target); } });
+  },{threshold:0.08,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>_obs.observe(el));
+  const _nav=document.querySelector('.site-header');
+  window.addEventListener('scroll',()=>{ _nav.style.boxShadow=window.scrollY>20?'0 2px 30px rgba(45,74,46,0.12)':'none'; });
+</script>
+<script src="script.js"></script>
 </body>
 </html>

@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Melinda & Julius — Contato</title>
+  <title>Contato — Melinda & Julius</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css"/>
-
-  <!-- GTM -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -16,38 +15,93 @@
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMT8HCLV"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
   <header class="site-header">
     <div class="container nav-wrap">
-      <div class="brand">Melinda & Julius</div>
-      <nav>
-        <ul class="menu">
+      <a href="index.html" class="brand"><img src="logo.png" alt="Melinda &amp; Julius" class="brand-logo"></a>
+      <button class="hamburger" aria-label="Menu" onclick="this.classList.toggle('open');document.querySelector('.nav-menu').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <nav><ul class="nav-menu">
           <li><a href="index.html">Início</a></li>
           <li><a href="sobre.html">Sobre</a></li>
           <li><a href="cardapio.html">Cardápio</a></li>
           <li><a href="emporio.html">Empório</a></li>
-          <li><a class="active" href="contato.html">Contato</a></li>
-        </ul>
-      </nav>
+          <li><a href="contato.html" class="active">Contato</a></li>
+      </ul></nav>
     </div>
   </header>
 
-  <main class="container page">
-    <div id="content">Carregando...</div>
+<div class="page-header page-header--verde">
+  <div class="container">
+    <p class="eyebrow">Onde estamos</p>
+    <h1>Venha nos <em>visitar</em></h1>
+  </div>
+</div>
 
-    <!-- Formspree -->
-    <form action="https://formspree.io/f/xblkndze" method="POST" class="texto-bloco" style="margin-top:18px">
-      <label>Nome<br><input type="text" name="nome" required></label><br><br>
-      <label>Email<br><input type="email" name="_replyto" required></label><br><br>
-      <label>Mensagem<br><textarea name="mensagem" rows="5" required></textarea></label><br><br>
-      <button type="submit">Enviar</button>
-    </form>
-  </main>
+<section class="contato-section">
+  <div class="container contato-grid">
+
+    <div class="contato-info reveal">
+      <!-- SHEETS: endereço/tel gerenciados pela planilha -->
+      <div id="content"></div>
+
+      <div class="info-bloco">
+        <h4>Horários</h4>
+        <div class="horarios">
+          <div class="h-row"><span>Segunda a Sexta</span><span>9h – 19h</span></div>
+          <div class="h-row"><span>Sábado</span><span>9h – 17h</span></div>
+          <div class="h-row h-row--fechado"><span>Domingo</span><span>Fechado</span></div>
+        </div>
+      </div>
+
+      <div class="info-bloco">
+        <h4>Redes Sociais</h4>
+        <div class="social-row">
+          <a href="https://instagram.com/melindaejulius" target="_blank" class="social-link">Instagram</a>
+          <a href="https://wa.me/5511000000000" target="_blank" class="social-link social-link--wa">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contato-direita reveal">
+      <div class="map-frame">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.527!2d-46.720!3d-23.595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDM1JzQyLjAiUyA0NsKwNDMnMTIuMCJX!5e0!3m2!1spt!2sbr!4v1000000000000!5m2!1spt!2sbr"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização Melinda &amp; Julius">
+        </iframe>
+      </div>
+
+      <div class="form-wrapper">
+        <h3>Envie uma mensagem</h3>
+        <form action="https://formspree.io/f/xblkndze" method="POST">
+          <label>Nome<input type="text" name="nome" required placeholder="Seu nome"></label>
+          <label>Email<input type="email" name="_replyto" required placeholder="seu@email.com"></label>
+          <label>Mensagem<textarea name="mensagem" rows="4" required placeholder="Como podemos ajudar?"></textarea></label>
+          <button type="submit">Enviar mensagem</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
 
   <footer class="site-footer">
-    <div class="container">© Melinda & Julius</div>
+    <div class="container footer-inner">
+      <img src="logo.png" alt="Melinda &amp; Julius" class="footer-logo">
+      <p class="footer-copy">© 2025 · Restaurante Macrobiótico &amp; Empório Orgânico · São Paulo</p>
+      <div class="footer-links">
+        <a href="https://instagram.com/melindaejulius" target="_blank">Instagram</a>
+        <a href="contato.html">Contato</a>
+      </div>
+    </div>
   </footer>
-
-  <script src="script.js"></script>
+<script>
+  const _obs = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); _obs.unobserve(e.target); } });
+  },{threshold:0.08,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>_obs.observe(el));
+  const _nav=document.querySelector('.site-header');
+  window.addEventListener('scroll',()=>{ _nav.style.boxShadow=window.scrollY>20?'0 2px 30px rgba(45,74,46,0.12)':'none'; });
+</script>
+<script src="script.js"></script>
 </body>
 </html>

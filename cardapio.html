@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Melinda & Julius — Cardápio</title>
+  <title>Cardápio — Melinda & Julius</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css"/>
-
-  <!-- GTM -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -16,30 +15,90 @@
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMT8HCLV"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
   <header class="site-header">
     <div class="container nav-wrap">
-      <div class="brand">Melinda & Julius</div>
-      <nav>
-        <ul class="menu">
+      <a href="index.html" class="brand"><img src="logo.png" alt="Melinda &amp; Julius" class="brand-logo"></a>
+      <button class="hamburger" aria-label="Menu" onclick="this.classList.toggle('open');document.querySelector('.nav-menu').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <nav><ul class="nav-menu">
           <li><a href="index.html">Início</a></li>
           <li><a href="sobre.html">Sobre</a></li>
-          <li><a class="active" href="cardapio.html">Cardápio</a></li>
+          <li><a href="cardapio.html" class="active">Cardápio</a></li>
           <li><a href="emporio.html">Empório</a></li>
           <li><a href="contato.html">Contato</a></li>
-        </ul>
-      </nav>
+      </ul></nav>
     </div>
   </header>
 
-  <main class="container page">
-    <div id="content">Carregando...</div>
-  </main>
+<div class="page-header page-header--verde">
+  <div class="container">
+    <p class="eyebrow">Restaurante macrobiótico</p>
+    <h1>O que tem <em>hoje</em></h1>
+    <p class="header-sub">Nosso cardápio muda diariamente com os ingredientes da estação. Feito do zero, 100% orgânico.</p>
+  </div>
+</div>
+
+<section class="cardapio-section">
+  <div class="container">
+
+    <div class="aviso-bar reveal">
+      🌿 O cardápio é atualizado diariamente. Siga <a href="https://instagram.com/melindaejulius" target="_blank">@melindaejulius</a> ou ligue antes de vir para confirmar o prato do dia.
+    </div>
+
+    <!-- FEIJOADA ESPECIAL -->
+    <div class="feijoada-card reveal">
+      <div class="feijoada-card-img">
+        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=800&q=80&fit=crop" alt="Feijoada vegana">
+      </div>
+      <div class="feijoada-card-info">
+        <span class="card-tag">✦ Especial de Quarta &amp; Sábado</span>
+        <h2>Feijoada <em>Vegana</em></h2>
+        <p>Nossa versão macrobiótica da feijoada: feijão preto orgânico cozido lentamente com ervas e especiarias, couve refogada, farofa de dendê, arroz integral e laranja. Sem carne, com toda a alma.</p>
+        <div class="feijoada-chips">
+          <span class="chip">Sem glúten</span>
+          <span class="chip">Vegano</span>
+          <span class="chip chip--org">Orgânico</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHEETS: pratos do dia gerenciados pela planilha -->
+    <div class="cardapio-lista-header reveal">
+      <p class="section-label">Cardápio do dia</p>
+      <h2 class="section-title">O que preparamos <em>hoje</em></h2>
+    </div>
+    <div id="content"></div>
+
+  </div>
+</section>
+
+<div class="nota-rodape container reveal">
+  <span class="nota-icon">🌿</span>
+  <div>
+    <strong>Cardápio atualizado todos os dias.</strong>
+    Acompanhe no <a href="https://instagram.com/melindaejulius" target="_blank">@melindaejulius</a> ou <a href="contato.html">entre em contato</a> antes de vir.
+  </div>
+</div>
 
   <footer class="site-footer">
-    <div class="container">© Melinda & Julius</div>
+    <div class="container footer-inner">
+      <img src="logo.png" alt="Melinda &amp; Julius" class="footer-logo">
+      <p class="footer-copy">© 2025 · Restaurante Macrobiótico &amp; Empório Orgânico · São Paulo</p>
+      <div class="footer-links">
+        <a href="https://instagram.com/melindaejulius" target="_blank">Instagram</a>
+        <a href="contato.html">Contato</a>
+      </div>
+    </div>
   </footer>
-
-  <script src="script.js"></script>
+<script>
+  const _obs = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); _obs.unobserve(e.target); } });
+  },{threshold:0.08,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>_obs.observe(el));
+  const _nav=document.querySelector('.site-header');
+  window.addEventListener('scroll',()=>{ _nav.style.boxShadow=window.scrollY>20?'0 2px 30px rgba(45,74,46,0.12)':'none'; });
+</script>
+<script src="script.js"></script>
 </body>
 </html>

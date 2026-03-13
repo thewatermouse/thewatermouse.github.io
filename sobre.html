@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Melinda & Julius — Sobre</title>
+  <title>Sobre — Melinda & Julius</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css"/>
-
-  <!-- GTM -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -16,30 +15,88 @@
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMT8HCLV"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
   <header class="site-header">
     <div class="container nav-wrap">
-      <div class="brand">Melinda & Julius</div>
-      <nav>
-        <ul class="menu">
+      <a href="index.html" class="brand"><img src="logo.png" alt="Melinda &amp; Julius" class="brand-logo"></a>
+      <button class="hamburger" aria-label="Menu" onclick="this.classList.toggle('open');document.querySelector('.nav-menu').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <nav><ul class="nav-menu">
           <li><a href="index.html">Início</a></li>
-          <li><a class="active" href="sobre.html">Sobre</a></li>
+          <li><a href="sobre.html" class="active">Sobre</a></li>
           <li><a href="cardapio.html">Cardápio</a></li>
           <li><a href="emporio.html">Empório</a></li>
           <li><a href="contato.html">Contato</a></li>
-        </ul>
-      </nav>
+      </ul></nav>
     </div>
   </header>
 
-  <main class="container page">
-    <div id="content">Carregando...</div>
-  </main>
+<div class="page-header page-header--verde">
+  <div class="container">
+    <p class="eyebrow">Nossa história &amp; filosofia</p>
+    <h1>Comer com <em>consciência</em></h1>
+  </div>
+</div>
+
+<section class="sobre-intro">
+  <div class="container sobre-grid">
+    <div class="sobre-text reveal">
+      <p class="section-label">Quem somos</p>
+      <blockquote class="big-quote">"A macrobiótica não é uma dieta.<br>É uma forma de ver o mundo."</blockquote>
+      <p>O Melinda &amp; Julius nasceu em 2007 com uma missão simples e profunda: tornar acessível a sabedoria da alimentação macrobiótica e natural no cotidiano de São Paulo.</p>
+      <p>Somos restaurante, empório e livraria — um espaço onde a comida é feita do zero todos os dias, com ingredientes orgânicos certificados, livres de ultraprocessados e artificiais.</p>
+      <!-- SHEETS: conteúdo adicional "Sobre" gerenciado pela planilha -->
+      <div id="content" class="sheets-sobre"></div>
+    </div>
+    <div class="sobre-image reveal">
+      <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=700&q=80&fit=crop" alt="Alimentação natural">
+      <div class="sobre-image-badge"><p>Orgânicos<br>Certificados<br>Desde 2007</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="principios-section">
+  <div class="container">
+    <p class="section-label reveal">Filosofia macrobiótica</p>
+    <h2 class="section-title reveal">Os princípios que <em>guiam</em> nossa cozinha</h2>
+    <div class="principios-grid">
+      <div class="principio reveal"><span class="p-num">01</span><h3>Equilíbrio Yin &amp; Yang</h3><p>A macrobiótica busca harmonia entre forças opostas. Na prática, combinar alimentos que nutram corpo e mente em equilíbrio.</p></div>
+      <div class="principio reveal"><span class="p-num">02</span><h3>Alimentos Integrais</h3><p>Grãos integrais, legumes e leguminosas — alimentos completos, sem refinamento, processamento ou artificiais.</p></div>
+      <div class="principio reveal"><span class="p-num">03</span><h3>Sazonalidade Local</h3><p>Comer o que a terra produz na estação certa é respeito ao ciclo natural. Nosso cardápio segue os produtores orgânicos da região.</p></div>
+      <div class="principio reveal"><span class="p-num">04</span><h3>Fermentados &amp; Vivos</h3><p>Missô, shoyu, umeboshi, chucrute — probióticos naturais no coração da culinária macrobiótica.</p></div>
+      <div class="principio reveal"><span class="p-num">05</span><h3>Mastigação Consciente</h3><p>A digestão começa na boca. Comer devagar, com atenção e gratidão, transforma a refeição em ato meditativo.</p></div>
+      <div class="principio reveal"><span class="p-num">06</span><h3>Medicina pelo Alimento</h3><p>"Que o alimento seja teu remédio." A cozinha macrobiótica reconhece as propriedades terapêuticas dos ingredientes.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="strip-stats">
+  <div class="container strip-grid">
+    <div class="strip-stat reveal"><span class="stat-n">17+</span><span class="stat-l">Anos de história</span></div>
+    <div class="strip-stat reveal"><span class="stat-n">2000+</span><span class="stat-l">Produtos no empório</span></div>
+    <div class="strip-stat reveal"><span class="stat-n">100%</span><span class="stat-l">Orgânicos certificados</span></div>
+    <div class="strip-stat reveal"><span class="stat-n">120+</span><span class="stat-l">Títulos na livraria</span></div>
+  </div>
+</section>
 
   <footer class="site-footer">
-    <div class="container">© Melinda & Julius</div>
+    <div class="container footer-inner">
+      <img src="logo.png" alt="Melinda &amp; Julius" class="footer-logo">
+      <p class="footer-copy">© 2025 · Restaurante Macrobiótico &amp; Empório Orgânico · São Paulo</p>
+      <div class="footer-links">
+        <a href="https://instagram.com/melindaejulius" target="_blank">Instagram</a>
+        <a href="contato.html">Contato</a>
+      </div>
+    </div>
   </footer>
-
-  <script src="script.js"></script>
+<script>
+  const _obs = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); _obs.unobserve(e.target); } });
+  },{threshold:0.08,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>_obs.observe(el));
+  const _nav=document.querySelector('.site-header');
+  window.addEventListener('scroll',()=>{ _nav.style.boxShadow=window.scrollY>20?'0 2px 30px rgba(45,74,46,0.12)':'none'; });
+</script>
+<script src="script.js"></script>
 </body>
 </html>
