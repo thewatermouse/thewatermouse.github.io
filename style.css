@@ -392,3 +392,32 @@ body::before {
 .footer-links a { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(242,234,216,0.45); text-decoration: none; transition: color 0.2s; }
 .footer-links a:hover { color: var(--bege-quente); }
 @media (max-width: 768px) { .footer-inner { flex-direction: column; text-align: center; } }
+
+/* ─── PEDIDO WHATSAPP (empório) ──────────────────────────────────── */
+.pedido-whatsapp {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 2rem; flex-wrap: wrap;
+  background: var(--verde-escuro);
+  padding: 2.5rem 3rem;
+  margin-top: 3rem;
+}
+.pedido-whatsapp-text h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
+  color: var(--bege-quente); margin-bottom: 0.4rem;
+}
+.pedido-whatsapp-text p {
+  font-family: 'DM Sans', sans-serif; font-size: 0.88rem;
+  color: rgba(242,234,216,0.65); line-height: 1.65;
+}
+.btn-whatsapp {
+  display: inline-flex; align-items: center; gap: 0.6rem; flex-shrink: 0;
+  font-family: 'DM Sans', sans-serif; font-size: 0.8rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--verde-escuro); background: #25D366;
+  padding: 0.9rem 1.75rem; text-decoration: none;
+  border-radius: 2px; transition: background 0.2s;
+}
+.btn-whatsapp:hover { background: #1fba58; }
+@media (max-width: 768px) {
+  .pedido-whatsapp { flex-direction: column; padding: 2rem 1.5rem; }
+}
