@@ -613,3 +613,33 @@ body::before {
   font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700;
   color: var(--verde-escuro); text-align: center;
 }
+
+/* ─── POLÍTICA DE DEVOLUÇÕES ─────────────────────────────────────── */
+.politica-section { padding: 5rem 0 6rem; }
+.politica-content { max-width: 780px; }
+.politica-bloco {
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(45,74,46,0.1);
+}
+.politica-bloco:last-child { border-bottom: none; margin-bottom: 0; }
+.politica-bloco h2 {
+  font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700;
+  color: var(--verde-escuro); margin-bottom: 1rem;
+}
+.politica-bloco p {
+  font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+  color: var(--cinza-texto); line-height: 1.8; margin-bottom: 0.85rem;
+}
+.politica-bloco p:last-child { margin-bottom: 0; }
+.politica-bloco strong { color: var(--marrom-texto); }
+.politica-bloco ul, .politica-bloco ol {
+  padding-left: 1.25rem; margin: 0.75rem 0;
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+.politica-bloco li {
+  font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+  color: var(--cinza-texto); line-height: 1.7;
+}
+.politica-bloco a { color: var(--verde-escuro); font-weight: 500; }
+.politica-bloco a:hover { color: var(--terracota); }
