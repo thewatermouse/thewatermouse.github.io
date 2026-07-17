@@ -94,7 +94,21 @@ na raiz com o domínio + orientar registros DNS (A do GitHub Pages + CNAME www).
 Depende da tarefa 3. Plataforma configurada pelo Digo; no repo, apenas linkar
 a loja a partir da `emporio.html` quando existir.
 
-### 5. [FEITA ✅] Grid visual de categorias no empório
+### 5. [FEITA ✅] Botão da cesta → WhatsApp
+O CTA "Quero minha cesta" (seção "Feira Orgânica na sua porta" da
+`emporio.html`) apontava pra `contato.html`; agora abre conversa direta no
+WhatsApp (`wa.me/5511984760015` com mensagem pré-preenchida sobre a cesta
+orgânica), em nova aba.
+
+### 6. [FEITA ✅] Feed do Merchant Center
+`merchant-feed.csv` na raiz do repo: cópia do `meta_import_final.csv` (319
+produtos) com a coluna `link` preenchida com
+`https://thewatermouse.github.io/emporio.html` em todas as linhas. Serve o
+Google Merchant Center via busca programada na URL pública
+`https://thewatermouse.github.io/merchant-feed.csv` (listagens gratuitas —
+ver kit operacional, Parte 3).
+
+### 7. [FEITA ✅] Grid visual de categorias no empório
 `emporio.html` ganhou a seção `.emporio-cats-section` ("Explore o empório")
 com 14 cards de categoria usando as imagens da raiz, todos linkando pro
 catálogo do WhatsApp. CSS em `style.css` (final do arquivo). A `cats-bar` do
