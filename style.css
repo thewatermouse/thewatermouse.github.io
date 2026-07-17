@@ -643,3 +643,14 @@ body::before {
 }
 .politica-bloco a { color: var(--verde-escuro); font-weight: 500; }
 .politica-bloco a:hover { color: var(--terracota); }
+
+/* ===== Empório: grid de categorias (seções) ===== */
+.emporio-cats-section { background: #fff; padding: 4.5rem 0 3rem; }
+.emporio-cats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 2rem; }
+.emporio-cat { text-decoration: none; display: block; background: var(--creme); border: 1px solid rgba(45,74,46,0.1); overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+.emporio-cat:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(45,74,46,0.12); }
+.emporio-cat-img { width: 100%; aspect-ratio: 1/1; background-size: cover; background-position: center; filter: saturate(0.85) sepia(0.08); transition: transform 0.5s; }
+.emporio-cat:hover .emporio-cat-img { transform: scale(1.05); }
+.emporio-cat span { display: block; padding: 0.9rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; letter-spacing: 0.05em; font-weight: 600; color: var(--verde-escuro); text-align: center; }
+@media (max-width: 900px) { .emporio-cats-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .emporio-cats-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; } .emporio-cat span { font-size: 0.72rem; padding: 0.7rem 0.5rem; } }
