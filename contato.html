@@ -121,4 +121,8 @@
   const _obs = new IntersectionObserver((entries)=>{
     entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); _obs.unobserve(e.target); } });
   },{threshold:0.08,rootMargin:'0px 0px -50px 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>_ob
+  document.querySelectorAll('.reveal').forEach(el=>_obs.observe(el));
+</script>
+<script src="script.js" defer></script>
+</body>
+</html>
