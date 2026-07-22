@@ -136,3 +136,16 @@ document.addEventListener('DOMContentLoaded', () => {
     carregarCSV(CSV_URLS.contato, 'contato', 'content', renderContato);
   }
 });
+
+/* ====== GTM: evento Contact em cliques de WhatsApp ====== */
+document.addEventListener('click', function(e){
+  const a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+  if(!a) return;
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'whatsapp_click',
+    link_url: a.href,
+    link_text: (a.textContent || '').trim().slice(0, 80),
+    page: location.pathname
+  });
+});
