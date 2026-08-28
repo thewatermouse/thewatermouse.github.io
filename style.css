@@ -603,7 +603,7 @@ body::before {
 }
 .marca-item:hover { box-shadow: 0 8px 30px rgba(45,74,46,0.1); transform: translateY(-3px); }
 .marca-item img {
-  max-width: 100%; max-height: 56px;
+  max-width: 80%; max-height: 46px; width: auto; height: auto;
   object-fit: contain; filter: grayscale(0.3) saturate(0.85);
   transition: filter 0.2s;
 }
