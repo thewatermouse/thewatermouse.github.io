@@ -151,7 +151,7 @@ const LOJA_LAT = -23.5943;
 const LOJA_LNG = -46.7200;
 const RAIO_IFOOD_KM = 10;
 
-const SHEETS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycby09cJ933U7fF9nXiOmiHjY7Gs-PuCDIkkLJfowK9dCV374-b-6IQL1HEvidMCb-vzF/exec';
+const FORM_ENDPOINT = 'https://formspree.io/f/xblkndze';
 
 function distanciaKm(lat1, lng1, lat2, lng2) {
 const R = 6371;
@@ -202,11 +202,12 @@ mensagem = `Não conseguimos localizar esse endereço automaticamente. Entre em 
 }
 
 try {
-await fetch(SHEETS_WEBAPP_URL, {
+await fetch(FORM_ENDPOINT, {
 method: 'POST',
-mode: 'no-cors',
-headers: { 'Content-Type': 'application/json' },
+headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
 body: JSON.stringify({
+_subject: 'Novo pedido de delivery — site',
+_replyto: email,
 nome, telefone, email, endereco,
 distancia_km: distancia ? distancia.toFixed(2) : 'não localizado',
 data: new Date().toLocaleString('pt-BR')
