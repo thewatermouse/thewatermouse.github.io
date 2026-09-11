@@ -126,8 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if(page==='index.html' || page===''){
     carregarCSV(CSV_URLS.inicio, 'inicio', 'content', renderInicio);
-  } else if(page==='sobre.html'){
-    carregarCSV(CSV_URLS.sobre, 'sobre', 'content', renderSobre);
   } else if(page==='cardapio.html'){
     carregarCSV(CSV_URLS.cardapio, 'cardapio', 'content', renderCardapio);
   } else if(page==='emporio.html'){
